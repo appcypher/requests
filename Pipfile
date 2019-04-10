@@ -1,0 +1,26 @@
+[[source]]
+name = "pypi"
+url = "https://pypi.org/simple"
+verify_ssl = true
+
+[packages]
+# Web framework
+flask = "*"
+
+
+[dev-packages]
+# Convention
+pep8 = "*"
+
+# Formatter
+autopep8 = "*"
+yapf = "*"
+
+# Linter
+pylint = "*"
+
+# Testing framework
+pytest = "*"
+
+[requires]
+python_version = "3.7"
