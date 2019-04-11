@@ -1,36 +1,36 @@
 ### INSTALLATION
 #### REQUIREMENTS
-- [Python version 3.7+]()
+- [Python 3.7+]()
 - [Pip]() (Should be intalled along with Python)
+- [Nodejs]()
+- [NPM]() (Should be intalled along with Nodejs)
+- [PostgreSQL]()
 
-```
-git clone https://www.github.com/appcypher/feature-requests.git
-```
+#### STEPS
+- ...
+    ```bash
+    git clone https://www.github.com/appcypher/feature-requests.git
+    ```
 
-```
-cd feature-requests
-```
+    ```bash
+    . setup.sh
+    ```
 
-```
-pip3 install pipenv
-```
+    ```bash
+    pipenv shell
+    ```
 
-```
-pipenv install
-```
-
-```
-pipenv shell
-```
-
-```
-flask run
-```
+    ```bash
+    flask run
+    ```
 
 ### RUNNING DOCKER FILES
 #### REQUIREMENTS
 - [Docker]()
 
-```
-docker-compose -f docker/compose.yml up
-```
+
+#### STEPS
+- ...
+    ```bash
+    docker-compose -f docker/compose.yml up
+    ```
