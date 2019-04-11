@@ -1,0 +1,16 @@
+{
+    "extends": "airbnb",
+    "globals": {
+      "expect": true,
+      "beforeAll": true,
+      "afterAll": true
+    },
+    "rules": {
+      "no-unused-vars": 0
+    },
+    "env": {
+      "es6": true,
+      "browser": true
+    },
+    "parser": "babel-eslint"
+}
