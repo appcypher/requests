@@ -20,14 +20,8 @@ main() {
     # Bundle js files
     npm run build:prod:dev
 
-    # Generates migration
-    flask db migrate
-
     # Apply migrations
-    flask db upgrade
-
-    # Upgrad
-    flask db upgrade
+    flask db upgrade -d server/migrations
 }
 
 main
