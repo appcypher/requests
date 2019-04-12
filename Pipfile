@@ -6,21 +6,35 @@ verify_ssl = true
 [packages]
 # Web framework
 flask = "*"
-
+# Database adapter
+psycopg2-binary = "*"
+# ORM
+sqlalchemy = "*"
+# WSGI server
+gunicorn = "*"
+# Serializer and validator
+marshmallow = "*"
+# Environment variables loader
+python-dotenv = "*"
 
 [dev-packages]
-# Convention
+# Style guide
 pep8 = "*"
-
 # Formatter
-autopep8 = "*"
 yapf = "*"
-
-# Linter
+# Linters
 pylint = "*"
-
+flake8 = "*"
 # Testing framework
 pytest = "*"
+# CORS
+flask-cors = "*"
+# DB migration
+flask-migrate = "*"
+# Flask debug toolbar
+flask-debugtoolbar = "*"
+# API expressiveness and documentation
+flask-restplus = "*"
 
 [requires]
 python_version = "3.7"
