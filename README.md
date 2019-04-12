@@ -4,7 +4,7 @@
 - [Pip]() (Should be intalled along with Python)
 - [Nodejs]()
 - [NPM]() (Should be intalled along with Nodejs)
-- [PostgreSQL]()
+- [PostgreSQL]() with `requests` and `requests_test` databases created
 
 #### STEPS
 - ...
