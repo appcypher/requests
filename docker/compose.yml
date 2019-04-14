@@ -1,0 +1,42 @@
+version: '3'
+services:
+  database:
+    restart: always
+    build:
+      context: ./database
+      dockerfile: ./Dockerfile
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=$SECRET_KEY
+      - POSTGRES_DB=requests
+    port:
+      - '5432:5432'
+    volumes:
+      - ./database:/var/lib/postgresql/data
+    expose:
+      - '5432'
+
+  app:
+    restart: always
+    user: root
+    build:
+      context: ../
+      dockerfile: docker/app/Dockerfile
+    port:
+      - '5000:5000'
+    depends_on:
+      - postgres
+    expose:
+      - '5000'
+
+  server:
+    restart: always
+    build:
+      context: ./server
+      dockerfile: ./Dockerfile
+    port:
+      - '80:80'
+    depends:
+      - app
+      - database
+
