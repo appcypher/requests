@@ -110,7 +110,7 @@ This project contains a set of AWS specific files (`buildspec.yml` and `deploy.s
 ##### STEPS
 - Start
 
-### AVAILABLE TASK RUNNERS
+### ⚙️ AVAILABLE TASK RUNNERS
 - ```flask model seed all``` → Seeds the database with important initial data
 - ```npm run build:dev:watch``` → Builds the frontend code with optimizations turned on and sourcemap
 - ```npm run build:dev:watch``` → Watches the frontend code for any change and rebuilds with debug options activated for development ease
