@@ -140,32 +140,34 @@ Check [here](...) for more information
 
 ### MADE WITH
 ##### MOCKUP
-- Figma
+- ```Figma``` → Cloud-based design tool
 
 ##### CLIENT
-- Knockout
-- JQuery
-- Webpack
-- SASS
+- ```Knockout``` → MVVM-based JavaScript library
+- ```JQuery``` → A fast, small and feature-rich JavaScript library
+- ```Webpack``` → Package bundler with minification
+- ```SCSS``` → Flexible superset of CSS
 
 ##### SERVER
-- Flask
-- SQLAlchelmy
-- Marshmallow
-- Nginx
+- ```Flask``` → Micro web framework for Python
+- ```SQLAlchelmy``` → SQL database ORM
+- ```Marshmallow``` → Serialization and validation tool
+- ```Gunicorn``` → WSGI-compliant web server
+- ```Nginx``` → Web server for reverse proxying, load balancing, caching and more
 
 ##### DATABASE
-- Postgres
+- ```PostgreSQL``` → Database management system
 
 ##### CI/CD
-- Docker
-- Travis
-- CodeClimate
-- Coveralls
-- Amazon ECS, CodePipeline, CodeBuild, CodeDeploy, CodeCommit
+- ```Docker``` → Container and image creation and management tool
+- ```Travis``` → Continous integration services
+- ```CodeClimate``` → Code maintenance and coverage services
+- ```Coveralls``` → Code coverage report services
+- ```Amazon ECS``` → Amazon's container orchestration services
+- ```Amazon CodePipeline, CodeBuild, CodeDeploy, CodeCommit``` → A set of AWS automation services for CI/CD
 
 ##### TESTS
-- Pytest
+- ```Pytest``` → Testing framework
 
 
 
