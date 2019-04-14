@@ -1,3 +1,4 @@
+""" Module for getting environment variables """
 from os import path, environ
 from dotenv import load_dotenv
 
