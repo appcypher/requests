@@ -1,9 +1,13 @@
+""" Module implementing Requests model """
 from .db import db
 from .base import BaseModel
 from enum import Enum
 
 
 class ProductArea(Enum):
+    """
+    Represents the range of allowed product area
+    """
     POLICIES = 'POLICIES'
     BILLING = 'BILLING'
     CLAIMS = 'CLAIMS'
@@ -11,6 +15,9 @@ class ProductArea(Enum):
 
 
 class Request(BaseModel):
+    """
+    Represents request database information
+    """
     title = db.Column(db.String(250), nullable=False)
     description = db.Column(db.String(250), nullable=False)
     product_area = db.Column(db.Enum(ProductArea), nullable=False)

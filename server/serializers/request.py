@@ -1,9 +1,13 @@
+""" Module containing request schema implementation """
 from marshmallow import fields
 from .base import BaseSchema
 from middleware.validations import string_length_validate
 
 
 class RequestSchema(BaseSchema):
+    """
+    Serialization specification for request schema
+    """
     title = fields.String(validate=string_length_validate(60), required=True)
     decription = fields.String(validate=string_length_validate(250),
                                required=True)

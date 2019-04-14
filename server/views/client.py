@@ -1,10 +1,12 @@
+""" Module containing client view implementation """
 from .api import api
-from flask import send_from_directory
 from flask_restplus import Resource
-from os import path
 
 
-@api.route('/clients')
+@api.route('/clients/<int:client_id>')
 class Client(Resource):
-    def get(self):
+    """
+    Endpoint for getting a client
+    """
+    def get(self, client_id):
         return {'success': False}
