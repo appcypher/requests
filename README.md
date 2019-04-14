@@ -1,5 +1,7 @@
 <h1 align="center">REQUESTS</h1>
 
+![Kinema](media/requests-page-mockup.png)
+
 Requests is part of a larger application. It allows the staff of an imaginary company to register and track client's feature requests.
 
 See Requests running [here](...)
