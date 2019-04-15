@@ -22,7 +22,8 @@ class Request(BaseModel):
     description = db.Column(db.String(250), nullable=False)
     product_area = db.Column(db.Enum(ProductArea), nullable=False)
     target_date = db.Column(db.DateTime(timezone=True), nullable=False)
-    priority = db.Column(db.Integer, nullable=False)
+    priority = db.Column(db.Integer, nullable=True)
+    resolved = db.Column(db.Boolean, default=False)
     # Relationships
     staff_id = db.Column(db.Integer, db.ForeignKey('staff.id'), nullable=False)
     client_id = db.Column(db.Integer,

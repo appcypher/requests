@@ -24,6 +24,7 @@ class RequestSchema(BaseSchema):
     client_id = fields.Integer(validate=validate_id(Client), required=True)
     staff_id = fields.Integer(validate=validate_id(Staff), required=True)
     comments = fields.Integer(required=True)
+    resolved = fields.Bool(dump_only=False)
     staff = fields.Nested(StaffSchema())
     comments = fields.Nested(CommentSchema(), many=True)
 

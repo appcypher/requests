@@ -15,7 +15,7 @@ class RequestEndpoint(Resource):
 
     def get(self):
         """
-        Gets all the requests.
+        Gets all feature requests.
         """
         # Get all requests
         request = Request.get_all()
@@ -31,7 +31,7 @@ class RequestEndpoint(Resource):
 
     def post(self):
         """
-        Adds a new request.
+        Adds a new request to the database.
         """
         # Convert request to dictionary
         request_dict = request.get_json() or {}
@@ -60,7 +60,7 @@ class SingleRequestEndpoint(Resource):
 
     def get(self, request_id):
         """
-        Gets the request with the specified id
+        Gets a specific request feature request and associated comments.
         """
         # Get the requested request
         request = Request.find_by_id(request_id)
@@ -104,6 +104,9 @@ class RequestCommentsEndpoint(Resource):
         """
         # Convert request to dictionary
         request_dict = request.get_json() or {}
+
+        # Add request_id field
+        request_dict['request_id'] = request_id
 
         # Create (de)serialization schema
         comment_schema = CommentSchema(exclude=('created_at', 'updated_at'))
