@@ -9,7 +9,7 @@ See Requests running [here](...)
 
 
 
-### INSTALLATION
+### 🛠 INSTALLATION
 ##### REQUIREMENTS
 - [Python 3.7+](https://www.python.org/downloads/) - Python interpreter
 - [Pip](https://pip.pypa.io/en/stable/installing/) (Should be installed along with Python) - Python package manager
@@ -53,7 +53,7 @@ See Requests running [here](...)
 
 
 
-### STARTING UP DOCKER CONTAINERS
+### 📦 STARTING UP DOCKER CONTAINERS
 ##### REQUIREMENTS
 - [Docker](https://docs.docker.com/v17.12/install/)
 
@@ -94,7 +94,7 @@ See Requests running [here](...)
 
 
 
-### DEPLOYMENT TO [AWS ECS]()
+### 🚀 DEPLOYMENT TO [AWS ECS]()
 This project contains a set of AWS specific files (`buildspec.yml` and `deploy.sh`) for automating CI/CD deployment. The deployment process relies on the following AWS automation services:
 - CodePipeline ...
 - CodeBuild ...
@@ -110,7 +110,7 @@ This project contains a set of AWS specific files (`buildspec.yml` and `deploy.s
 ##### STEPS
 - Start
 
-### AVAILABLE TASK RUNNERS
+### ⚙️ AVAILABLE TASK RUNNERS
 - ```flask model seed all``` → Seeds the database with important initial data
 - ```npm run build:dev:watch``` → Builds the frontend code with optimizations turned on and sourcemap
 - ```npm run build:dev:watch``` → Watches the frontend code for any change and rebuilds with debug options activated for development ease
@@ -119,7 +119,7 @@ This project contains a set of AWS specific files (`buildspec.yml` and `deploy.s
 
 
 
-### API
+### ↔️ API
 Check [here](...) for more information
 
 ##### REQUESTS
@@ -140,7 +140,7 @@ Check [here](...) for more information
 
 
 
-### MADE WITH
+### 🥘 MADE WITH
 ##### MOCKUP
 - ```Figma``` → Cloud-based design tool
 
@@ -174,5 +174,5 @@ Check [here](...) for more information
 
 
 
-### LICENSE
+### 🤝 LICENSE
 [Apache License 2.0](LICENSE)
