@@ -12,14 +12,35 @@ def seed_request():
     # Create seeds for request
     requests = [
         Request(
-            id=1,
-            title='Test title',
-            description='test description',
-            product_area=ProductArea.CLAIMS,
+            title='Improve customer care services',
+            description='The current customer care services are reported to '
+            'be abysmal with representatives dropping calls on customer or '
+            'being rather unpleasant.',
+            product_area=ProductArea.POLICIES,
             target_date=datetime.utcnow(),
             priority=1,
             staff_id=1,
             client_id=1,
+        ),
+        Request(
+            title='Add PayPal payment support',
+            description='Client B wants to be able to purchase '
+            'using his PayPal ',
+            product_area=ProductArea.BILLING,
+            target_date=datetime.utcnow(),
+            priority=1,
+            staff_id=2,
+            client_id=2,
+        ),
+        Request(
+            title='Add option for clearing transactions',
+            description='Client B wants to be able to clear old '
+            'transaction list to reduce UI clutter',
+            product_area=ProductArea.CLAIMS,
+            target_date=datetime.utcnow(),
+            priority=2,
+            staff_id=2,
+            client_id=3,
         ),
     ]
 

@@ -10,8 +10,8 @@ def seed_staff():
     # Create seeds for staff
     staff = [
         Staff(id=1, username='Steve Akinyemi', avatar_url=''),
-        Staff(id=2, username='James Cameron', avatar_url=''),
-        Staff(id=3, username='John Does', avatar_url=''),
+        Staff(id=2, username='James Waldo', avatar_url=''),
+        Staff(id=3, username='Anu Johnson', avatar_url=''),
     ]
 
     # Save to the database
