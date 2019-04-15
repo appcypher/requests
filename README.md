@@ -110,6 +110,10 @@ This project contains a set of AWS specific files (`buildspec.yml` and `deploy.s
 ##### STEPS
 - Start
 
+
+
+
+
 ### ⚙️ AVAILABLE TASK RUNNERS
 - ```flask model seed all``` → Seeds the database with important initial data
 - ```npm run build:dev:watch``` → Builds the frontend code with optimizations turned on and sourcemap
@@ -120,16 +124,16 @@ This project contains a set of AWS specific files (`buildspec.yml` and `deploy.s
 
 
 ### ↔️ API
-Check [here](...) for more information
+Check [here](https://documenter.getpostman.com/view/4928310/S1EQSHJX) for more information
 
 ##### REQUESTS
 - GET: ```/api/v1/requests``` → Gets all the requests
 - POST: ```/api/v1/requests``` → Saves requests
 - GET: ```/api/v1/requests/:id``` → Gets a request with specified id
 
-##### REQUESTS
+##### COMMENTS
 - GET: ```/api/v1/requests/:id/comments``` → Gets all the comments under a request
-- GET: ```/api/v1/requests/:id/comments``` →  Adds a new comment under a request
+- POST: ```/api/v1/requests/:id/comments``` →  Adds a new comment under a request
 
 ##### STAFF
 - GET: ```/api/v1/staff/:id``` →  Gets a request with specified id
@@ -176,3 +180,9 @@ Check [here](...) for more information
 
 ### 🤝 LICENSE
 [Apache License 2.0](LICENSE)
+
+
+
+
+### 👍 CREDITS
+This project is made more nicer looking. Thanks to the free work of these awesome [graphic designers](ATTRIBUTIONS.md)
