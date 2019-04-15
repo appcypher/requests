@@ -70,7 +70,7 @@ def validate_priority(client_id, priority):
                                      priority=priority).all()
 
     if result:
-        raise ClientError('priority number already exists for client')
+        raise ClientError('priority number already exists for client', 409)
 
 
 def validate_id(model):
