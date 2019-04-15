@@ -1,5 +1,6 @@
 node_modules
 .vscode/
-**/dist
+**/dist/*
 **/__pycache__
 .env
+!client/dist/favicon.svg
