@@ -1,7 +1,8 @@
 """ Module for staff view implementation. """
-from flask import send_from_directory
 from flask_restplus import Resource
-from os import path
+from models import Staff
+from serializers import StaffSchema
+from messages import messages
 from .api import api
 
 
@@ -12,4 +13,17 @@ class StaffEndpoint(Resource):
     """
 
     def get(self, staff_id):
-        return {'success': False}
+        """
+        Gets the staff with the specified id.
+        """
+        # Get the requested staff
+        staff = Staff.find_by_id(staff_id)
+
+        # Create a serialization schema
+        staff_schema = StaffSchema(exclude=('created_at', 'updated_at'))
+        
+        return {
+            'success': True,
+            'message': messages['fetched']('staff'),
+            'data': staff_schema.serialize(staff)
+        }

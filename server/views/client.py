@@ -13,8 +13,15 @@ class ClientEndpoint(Resource):
     """
 
     def get(self, client_id):
+        """
+        Gets the client with the specified id
+        """
+        # Get the requested client
         client = Client.find_by_id(client_id)
+
+        # Create a serialization schema
         client_schema = ClientSchema(exclude=('created_at', 'updated_at'))
+
         return {
             'success': True,
             'message': messages['fetched']('client'),

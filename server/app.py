@@ -1,6 +1,7 @@
 """ Module for flask app configuration. """
-from flask import Flask, jsonify
+from flask import Flask
 from extensions import cors, migrate, debug_toolbar
+from werkzeug.exceptions import HTTPException
 from config.blueprints import api_v1_blueprint
 from config.config import apply_configuration
 from models.db import db
@@ -58,14 +59,27 @@ def initialize_extensions(app):
     debug_toolbar.init_app(app)
 
 
-@api.errorhandler(ApplicationError)
+@api.errorhandler(Exception)
+@api_v1_blueprint.errorhandler(Exception)
 def register_error_handler(error):
     """
     Handles all errors from the app.
 
     Args:
-        error (ApplicationError): the error returned by the app.
+        error (Exception): the error returned by the app.
     """
-    response = jsonify(error.error)
-    response.status_code = error.status_code
-    return response
+    error_type = type(error)
+    response = {'success': False, 'message': str(error)}
+    status_code = 500
+
+    # Get application exceptions
+    if issubclass(error_type, ApplicationError):
+        status_code = error.status_code
+        response['message'] = error.message
+    # Get flask exceptions
+    elif issubclass(error_type, HTTPException):
+        error_response = error.get_response()
+        status_code = error_response._status_code
+        response['message'] = error.description
+
+    return response, status_code

@@ -61,7 +61,8 @@ class BaseModel(db.Model):
 
         result = query.filter_by(id=id).first()
         if not result:
-            raise ClientError('cannot find specified client', 404)
+            raise ClientError(f'cannot find specified {cls.__name__.lower()}',
+                              404)
         return result
 
     @classmethod

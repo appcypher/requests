@@ -33,8 +33,10 @@ def seed_all():
 
     Args:
         model (str): database model.
+
+    Note:
+        Order of seed function calls is important
     """
-    # Order is important here
     seed_client()
     seed_staff()
     seed_request()

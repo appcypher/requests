@@ -17,7 +17,7 @@ class ApplicationError(Exception):
         super().__init__(message)
 
         self.status_code = status_code
-        self.error = {'success': 'failure', 'message': message}
+        self.message = message
 
 
 class ClientError(ApplicationError):

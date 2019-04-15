@@ -70,4 +70,19 @@ def validate_priority(client_id, priority):
                                      priority=priority).all()
 
     if result:
-        ClientError('priority number already exists for client')
+        raise ClientError('priority number already exists for client')
+
+
+def validate_id(model):
+    """
+    Checks if a row with specified id exists for a model.
+
+    Args:
+        model (Model): table of interest.
+        id (int): id to check for.
+
+    Raises:
+        ClientError: if row does not exist.
+    """
+
+    return lambda id: model.find_by_id(id)
