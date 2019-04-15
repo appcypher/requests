@@ -16,6 +16,7 @@ gunicorn = "*"
 marshmallow = "*"
 # Environment variables loader
 python-dotenv = "*"
+marshmallow-enum = "*"
 
 [dev-packages]
 # Style guide
