@@ -1,4 +1,4 @@
-""" Module for seeding requests in the database """
+""" Module for seeding requests in the database. """
 from models import Request
 from models.db import db
 from datetime import datetime
@@ -7,7 +7,7 @@ from models.request import ProductArea
 
 def seed_request():
     """
-    Adds request seeds to the database
+    Adds request seeds to the database.
     """
     # Create seeds for request
     requests = [

@@ -1,4 +1,4 @@
-""" Module for flask commandline extension """
+""" Module for flask commandline extension. """
 import click
 from flask.cli import AppGroup
 from seeders import (seed_client, seed_comment, seed_request, seed_staff)
@@ -10,10 +10,10 @@ db_cli = AppGroup('model')
 @click.argument('model')
 def seed_model(model):
     """
-    Seeds a model to the database
+    Seeds a model to the database.
 
-    Parameters:
-        model (str): database model
+    Args:
+        model (str): database model.
     """
     if model == 'all':
         seed_all()
@@ -29,10 +29,10 @@ def seed_model(model):
 
 def seed_all():
     """
-    Seeds all models to the database
+    Seeds all models to the database.
 
-    Parameters:
-        model (str): database model
+    Args:
+        model (str): database model.
     """
     # Order is important here
     seed_client()

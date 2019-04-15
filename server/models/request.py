@@ -1,12 +1,12 @@
-""" Module implementing Requests model """
+""" Module implementing Requests model. """
+from enum import Enum
 from .db import db
 from .base import BaseModel
-from enum import Enum
 
 
 class ProductArea(Enum):
     """
-    Represents the range of allowed product area
+    Represents the range of allowed product area.
     """
     POLICIES = 'POLICIES'
     BILLING = 'BILLING'
@@ -16,18 +16,18 @@ class ProductArea(Enum):
 
 class Request(BaseModel):
     """
-    Represents request database information
+    Represents request database information.
     """
     title = db.Column(db.String(250), nullable=False)
     description = db.Column(db.String(250), nullable=False)
     product_area = db.Column(db.Enum(ProductArea), nullable=False)
     target_date = db.Column(db.DateTime(timezone=True), nullable=False)
     priority = db.Column(db.Integer, nullable=False)
+    # Relationships
     staff_id = db.Column(db.Integer, db.ForeignKey('staff.id'), nullable=False)
     client_id = db.Column(db.Integer,
                           db.ForeignKey('client.id'),
-                          nullable=False)  # Requesting client
-    comments = db.relationship('Comment', backref='request', lazy='dynamic')
-
-    def __repr__(self):
-        return f'Request {vars(self)}'
+                          nullable=False)
+    client = db.relationship('Client', back_populates='requests')
+    staff = db.relationship('Staff', back_populates='requests')
+    comments = db.relationship('Comment', back_populates='request')

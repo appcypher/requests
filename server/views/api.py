@@ -1,4 +1,4 @@
-""" Module that contains restplus api isntantiation """
+""" Module that contains restplus api isntantiation. """
 from flask_restplus import Api
 from config.blueprints import api_v1_blueprint
 

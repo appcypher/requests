@@ -1,11 +1,11 @@
-""" Module for seeding comments in the database """
+""" Module for seeding comments in the database. """
 from models import Comment
 from models.db import db
 
 
 def seed_comment():
     """
-    Adds comment seeds to the database
+    Adds comment seeds to the database.
     """
     # Create seeds for comments
     comments = [

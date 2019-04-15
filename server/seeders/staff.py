@@ -1,11 +1,11 @@
-""" Module for seeding staff in the database """
+""" Module for seeding staff in the database. """
 from models import Staff
 from models.db import db
 
 
 def seed_staff():
     """
-    Adds client staff to the database
+    Adds client staff to the database.
     """
     # Create seeds for staff
     staff = [

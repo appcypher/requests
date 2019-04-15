@@ -1,11 +1,11 @@
-""" Module for seeding clients in the database """
+""" Module for seeding clients in the database. """
 from models import Client
 from models.db import db
 
 
 def seed_client():
     """
-    Adds client seeds to the database
+    Adds client seeds to the database.
     """
     # Create seeds for clients
     clients = [

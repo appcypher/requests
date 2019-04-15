@@ -1,4 +1,4 @@
-""" Module for creating flask application blueprints """
+""" Module for creating flask application blueprints. """
 
 from flask import Blueprint
 

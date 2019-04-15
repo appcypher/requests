@@ -1,13 +1,14 @@
-""" Module for request view implementation """
-from .api import api
+""" Module for request view implementation. """
 from flask_restplus import Resource
+from .api import api
 
 
 @api.route('/requests')
-class Request(Resource):
+class RequestEndpoint(Resource):
     """
-    Endpoint for getting and creating requests
+    Endpoint for getting and creating requests.
     """
+
     def get(self):
         return {'success': False}
 
@@ -16,19 +17,21 @@ class Request(Resource):
 
 
 @api.route('/requests/<int:request_id>')
-class SingleRequest(Resource):
+class SingleRequestEndpoint(Resource):
     """
-    Endpoint for getting and creating a single request
+    Endpoint for getting a single request.
     """
+
     def get(self, request_id):
         return {'success': False}
 
 
 @api.route('/requests/<int:request_id>/comments')
-class RequestComments(Resource):
+class RequestCommentsEndpoint(Resource):
     """
-    Endpoint for getting or  adding comments to a request
+    Endpoint for getting or  adding comments to a request.
     """
+
     def get(self, request_id):
         return {'success': False}
 

@@ -1,4 +1,4 @@
-""" Module for flask app configuration """
+""" Module for flask app configuration. """
 from flask import Flask, jsonify
 from extensions import cors, migrate, debug_toolbar
 from config.blueprints import api_v1_blueprint
@@ -12,10 +12,10 @@ from cli import db_cli
 
 def create_app():
     """
-    Creates app and sets it up with necessary configuration
+    Creates app and sets it up with necessary configuration.
 
-    Parameters:
-        app (Flask): flask application
+    Args:
+        app (Flask): flask application.
     """
     app = Flask(__name__)
     apply_configuration(app)
@@ -32,10 +32,10 @@ def register_blueprints(app):
 
 def add_rules(app):
     """
-    Adds routes for serving static files
+    Adds routes for serving static files.
 
-    Parameters:
-        app (Flask): flask application
+    Args:
+        app (Flask): flask application.
     """
     app.add_url_rule('/', 'home', view_func=serve_index)
     app.add_url_rule('/<path:path>', 'files', view_func=serve_files)
@@ -47,10 +47,10 @@ def register_cli_commands(app):
 
 def initialize_extensions(app):
     """
-    Initializes flask extensions
+    Initializes flask extensions.
 
-    Parameters:
-        app (Flask): flask application
+    Args:
+        app (Flask): flask application.
     """
     db.init_app(app)
     cors.init_app(app)
@@ -61,10 +61,10 @@ def initialize_extensions(app):
 @api.errorhandler(ApplicationError)
 def register_error_handler(error):
     """
-    Handles all errors from the app
+    Handles all errors from the app.
 
-    Parameters:
-        error (ApplicationError): the error returned by the app
+    Args:
+        error (ApplicationError): the error returned by the app.
     """
     response = jsonify(error.error)
     response.status_code = error.status_code

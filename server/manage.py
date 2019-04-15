@@ -1,4 +1,4 @@
-""" Module for running flask programmatically """
+""" Module for running flask programmatically. """
 from app import create_app
 
 flask_app = create_app()

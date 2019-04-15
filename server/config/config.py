@@ -1,14 +1,14 @@
-""" Module for flask application configuration """
+""" Module for flask application configuration. """
 from .env import (TESTING, SECRET_KEY, SQLALCHEMY_DATABASE_URI_TESTING,
                   SQLALCHEMY_DATABASE_URI_DEVELOPMENT)
 
 
 def apply_configuration(app):
     """
-    Adds configuration values to flask app
+    Adds configuration values to flask app.
 
-    Parameters:
-        app(Flask): Flask application
+    Args:
+        app(Flask): flask application.
     """
     SQLALCHEMY_DATABASE_URI = (SQLALCHEMY_DATABASE_URI_TESTING if TESTING else
                                SQLALCHEMY_DATABASE_URI_DEVELOPMENT)

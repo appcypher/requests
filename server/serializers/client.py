@@ -1,12 +1,12 @@
-""" Module containing client schema implementation """
+""" Module containing client schema implementation. """
 from marshmallow import fields
-from .base import BaseSchema
 from middleware.validations import (validate_string_length, validate_url)
+from .base import BaseSchema
 
 
 class ClientSchema(BaseSchema):
     """
-    Serialization specification for client schema
+    Client schema for validating, serializing and deserializing Client objects.
     """
     username = fields.String(validate=validate_string_length(60),
                              required=True)

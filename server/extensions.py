@@ -1,4 +1,4 @@
-""" Module for initializing flask extensions """
+""" Module for initializing flask extensions. """
 from flask_migrate import Migrate
 from flask_cors import CORS
 from flask_debugtoolbar import DebugToolbarExtension
