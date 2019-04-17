@@ -31,19 +31,16 @@ jobs:
             - "/usr/local/lib/python3.7/site-packages"
       # Run tests
       - run:
-        command: |
-          pipenv shell
-          pytest
+          command: |
+            pipenv shell
+            pytest
       # Upload coverage
       - run:
-        command: |
-          coverage
+          command: |
+            coverage
       # Upload test results
       - store_test_results:
           path: test-results
       - store_artifacts:
           path: test-results
           destination: tr1
-
-
-
