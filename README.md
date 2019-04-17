@@ -171,7 +171,7 @@ Check [here](https://documenter.getpostman.com/view/4928310/S1EQSHJX) for more i
 
 ##### SERVER
 - ```Flask``` → Micro web framework for Python
-- ```SQLAlchelmy``` → SQL database ORM
+- ```SQLAlchemy``` → SQL database ORM
 - ```Marshmallow``` → Serialization and validation tool
 - ```Gunicorn``` → WSGI-compliant web server
 - ```Nginx``` → Web server for reverse proxying, load balancing, caching and more

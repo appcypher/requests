@@ -68,7 +68,7 @@ def initialize_extensions(app):
     Args:
         app (Flask): flask application.
     """
-    # Initialize SQLAlchelmy instance.
+    # Initialize SQLAlchemy instance.
     db.init_app(app)
 
     # Allow cross-origin requests.

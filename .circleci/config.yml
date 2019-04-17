@@ -3,39 +3,48 @@ jobs:
   build:
     working_directory: ~/requests
     docker:
-      - image: circleci/python:3.7.3 # Python base image
+      # Python base image
+      - image: circleci/python:3.7.3
         environment:
           PIPENV_VENV_IN_PROJECT: true
-      - image: circleci/postgres:9.6.2 # Database image
+          SQLALCHEMY_DATABASE_URI_TESTING: postgresql://localhost/requests_test
+      # Database image
+      - image: circleci/postgres:9.6.2
         environment:
-          POSTGRES_USER: root
+          POSTGRES_USER: circleci
           POSTGRES_DB: requests_test
     steps:
-      - checkout  # checkout source code to working directory
-      # Reuse cache
-      - run: sudo chown -R circleci:circleci /usr/local/bin
-      - run: sudo chown -R circleci:circleci /usr/local/lib/python3.6/site-packages
-      - restore_cache:  # Ensure this step occurs *before* installing dependencies
-          key: deps9-{{ .Branch }}-{{ checksum "Pipfile.lock" }}
-      # Install dependencies
+      # Checkout source to `working_directory`
+      - checkout
+      # Restore cache
+      - restore_cache:
+          key: cache-{{ checksum "Pipfile.lock" }}
+          paths:
+            - ~/.local
+            - ~/.cache
       - run:
-          command: |  # Install pipenv and install dependencies
-            sudo pip install pipenv
+          name: Sanity checks
+          command: |
+            echo ${SQLALCHEMY_DATABASE_URI_TESTING}
+      # Install pipenv dependencies. pipenv comes installed.
+      - run:
+          name: Installing dependencies
+          command: |
             pipenv install --dev
       # Cache dependencies
       - save_cache:
-          key: deps9-{{ .Branch }}-{{ checksum "Pipfile.lock" }}
+          key: cache-{{ checksum "Pipfile.lock" }}
           paths:
-            - ".venv"
-            - "/usr/local/bin"
-            - "/usr/local/lib/python3.7/site-packages"
+            - ~/.local
+            - ~/.cache
       # Run tests
       - run:
+          name: Running tests
           command: |
-            pipenv shell
-            pytest
+            pipenv run pytest -k views
       # Upload coverage
       - run:
+          name: Reporting coverage
           command: |
             coverage
       # Upload test results

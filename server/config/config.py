@@ -27,7 +27,7 @@ def apply_configuration(app, test_env=False):
     # The postgres database URI
     app.config['SQLALCHEMY_DATABASE_URI'] = SQLALCHEMY_DATABASE_URI
 
-    # A deprecated SQLAlchelmy feature that needs to be turned off
+    # A deprecated SQLAlchemy feature that needs to be turned off
     app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
     # Prevents flask restful from appending message to 404 response

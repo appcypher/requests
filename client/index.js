@@ -1,5 +1,4 @@
 // Libraries
-import $ from 'jquery';
 import ko from 'knockout';
 // Components
 import './components/view';

@@ -1,5 +1,5 @@
-""" Module holding the initialization of SQLAlchelmy instance. """
+""" Module holding the initialization of SQLAlchemy instance. """
 from flask_sqlalchemy import SQLAlchemy
 
-# Create SQLAlchelmy instance
+# Create SQLAlchemy instance
 db = SQLAlchemy()

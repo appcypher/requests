@@ -80,14 +80,10 @@ start() {
     # Disable all ports except 5000
     sudo ufw enable && sudo ufw allow 5000
 
-    # Set env variables
-    setenv
+    # Move to server directory
 
-    # Activate virtual environment
-    pipenv shell
-
-    # Start wsgi server
-    gunicorn --workers 2 manage:flask_app -b 127.0.0.1:5000
+    # Activate virtual environment and start wsgi server.
+    pipenv run gunicorn --pythonpath ./server --workers 2 manage:flask_app -b 127.0.0.1:5000
 }
 
 # Removes projects build dependencies
