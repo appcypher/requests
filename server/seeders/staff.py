@@ -7,13 +7,13 @@ def seed_staff():
     """
     Adds client staff to the database.
     """
-    # Create seeds for staff
+    # Create seeds for staff.
     staff = [
         Staff(id=1, username='Steve Akinyemi', avatar_url=''),
         Staff(id=2, username='James Waldo', avatar_url=''),
         Staff(id=3, username='Anu Johnson', avatar_url=''),
     ]
 
-    # Save to the database
+    # Save to the database.
     db.session.add_all(staff)
     db.session.commit()

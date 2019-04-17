@@ -119,6 +119,6 @@ class RequestCommentsEndpoint(Resource):
 
         return {
             'success': True,
-            'message': messages['created']('request'),
+            'message': messages['created']('comment'),
             'data': comment_schema.serialize(comment_data),
         }, 201

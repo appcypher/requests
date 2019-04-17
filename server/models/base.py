@@ -35,6 +35,7 @@ class BaseModel(db.Model):
         for field, value in kwargs.items():
             setattr(self, field, value)
         db.session.commit()
+        return self
 
     @classmethod
     def find_by_id(cls, id, includes=[]):

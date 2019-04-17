@@ -9,7 +9,7 @@ def seed_request():
     """
     Adds request seeds to the database.
     """
-    # Create seeds for request
+    # Create seeds for request.
     requests = [
         Request(
             title='Improve customer care services',
@@ -44,6 +44,6 @@ def seed_request():
         ),
     ]
 
-    # Save to the database
+    # Save to the database.
     db.session.add_all(requests)
     db.session.commit()

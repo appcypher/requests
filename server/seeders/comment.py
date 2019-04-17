@@ -7,7 +7,7 @@ def seed_comment():
     """
     Adds comment seeds to the database.
     """
-    # Create seeds for comments
+    # Create seeds for comments.
     comments = [
         Comment(message='I will be working on this soon',
                 request_id=1,
@@ -26,6 +26,6 @@ def seed_comment():
                 staff_id=3),
     ]
 
-    # Save to the database
+    # Save to the database.
     db.session.add_all(comments)
     db.session.commit()

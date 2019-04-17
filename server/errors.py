@@ -35,20 +35,3 @@ class ClientError(ApplicationError):
             status_code (int): status code.
         """
         super().__init__(message, status_code)
-
-
-class ServerError(ApplicationError):
-    """
-    Used to represent server errors. Server errors usually have 500
-    status codes.
-    """
-
-    def __init__(self, message, status_code=500):
-        """
-        Initialises the error instance with given message and status code.
-
-        Args:
-            message (str): error message.
-            status_code (int): status code.
-        """
-        super().__init__(message, status_code)

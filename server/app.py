@@ -1,6 +1,6 @@
 """ Module for flask app configuration. """
 from flask import Flask
-from extensions import cors, migrate, debug_toolbar
+from extensions import cors, migrate
 from werkzeug.exceptions import HTTPException
 from config.blueprints import api_v1_blueprint
 from config.config import apply_configuration
@@ -11,19 +11,31 @@ from errors import ApplicationError
 from cli import db_cli
 
 
-def create_app():
+def create_app(test_env=False):
     """
     Creates app and sets it up with necessary configuration.
 
     Args:
         app (Flask): flask application.
     """
+    # Start and create flask app instance.
     app = Flask(__name__)
-    apply_configuration(app)
+
+    # Apply flask configurations.
+    apply_configuration(app, test_env)
+
+    # Add additional endpoints to app.
     add_rules(app)
+
+    # Register application blueprint.
     register_blueprints(app)
+
+    # Initiatze extensions.
     initialize_extensions(app)
+
+    # Add cli commands like `flask seed model`.
     register_cli_commands(app)
+
     return app
 
 
@@ -38,7 +50,10 @@ def add_rules(app):
     Args:
         app (Flask): flask application.
     """
+    # Serve `index.html` on '/' root route.
     app.add_url_rule('/', 'home', view_func=serve_index)
+
+    # Serve from other files from `client/dist` folder.
     app.add_url_rule('/<path:path>', 'files', view_func=serve_files)
 
 
@@ -53,10 +68,14 @@ def initialize_extensions(app):
     Args:
         app (Flask): flask application.
     """
+    # Initialize SQLAlchelmy instance.
     db.init_app(app)
+
+    # Allow cross-origin requests.
     cors.init_app(app)
+
+    # Apply database migrations.
     migrate.init_app(app, db)
-    debug_toolbar.init_app(app)
 
 
 @api.errorhandler(Exception)

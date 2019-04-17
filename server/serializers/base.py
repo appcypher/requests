@@ -22,16 +22,6 @@ class BaseSchema(Schema):
 
         return attempt(self.dump(obj))
 
-    def serialize_to_json(self, obj):
-        """
-        Serialize object into a json string.
-
-        Args:
-            obj (object): any serializable Python object.
-        """
-
-        return attempt(self.dumps(obj))
-
     def deserialize(self, dictionary):
         """
         Deserialize object from a dictionary.
@@ -41,16 +31,6 @@ class BaseSchema(Schema):
         """
 
         return attempt(self.load(dictionary))
-
-    def deserialize_from_json(self, json):
-        """
-        Deserialize object from a json string.
-
-        Args:
-            json (str): any serializable Python object.
-        """
-
-        return attempt(self.loads(json))
 
 
 def attempt(result):
