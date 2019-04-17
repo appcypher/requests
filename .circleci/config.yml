@@ -22,10 +22,6 @@ jobs:
           paths:
             - ~/.local
             - ~/.cache
-      - run:
-          name: Sanity checks
-          command: |
-            echo ${SQLALCHEMY_DATABASE_URI_TESTING}
       # Install pipenv dependencies. pipenv comes installed.
       - run:
           name: Installing dependencies
@@ -37,16 +33,22 @@ jobs:
           paths:
             - ~/.local
             - ~/.cache
+      # Creating mock resource
+      - run:
+          name: Creating mock resources
+          command: |
+            mkdir -p client/dist
+            echo "function(){}" > client/dist/bundle.min.js
       # Run tests
       - run:
           name: Running tests
           command: |
-            pipenv run pytest -k views
+            pipenv run pytest
       # Upload coverage
       - run:
           name: Reporting coverage
           command: |
-            coverage
+            coveralls
       # Upload test results
       - store_test_results:
           path: test-results

@@ -206,7 +206,6 @@ def test_post_requests_fails_with_bad_json_in_body(
     response = res.get_json()
 
     assert not response['success']
-    assert response['message'].startswith('Failed to decode JSON object')
     assert res.status_code == 400
 
 
