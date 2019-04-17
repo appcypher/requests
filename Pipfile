@@ -14,9 +14,10 @@ sqlalchemy = "*"
 gunicorn = "*"
 # Serializer and validator
 marshmallow = "*"
+# Marshmallow Enum (de)serializer
+marshmallow-enum = "*"
 # Environment variables loader
 python-dotenv = "*"
-marshmallow-enum = "*"
 
 [dev-packages]
 # Style guide
@@ -28,14 +29,16 @@ pylint = "*"
 flake8 = "*"
 # Testing framework
 pytest = "*"
+# PYTONPATH pytest plugin
+pytest-pythonpath = "*"
 # CORS
 flask-cors = "*"
 # DB migration
 flask-migrate = "*"
-# Flask debug toolbar
-flask-debugtoolbar = "*"
 # API expressiveness and documentation
 flask-restplus = "*"
+# Pytest coverage reporting tool
+pytest-cov = "*"
 
 [requires]
 python_version = "3.7"

@@ -4,3 +4,6 @@ node_modules
 **/__pycache__
 .env
 !client/dist/favicon.svg
+htmlcov/
+.coverage
+**/.DS_Store
