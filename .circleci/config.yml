@@ -48,7 +48,7 @@ jobs:
       - run:
           name: Reporting coverage
           command: |
-            coveralls
+            pipenv run coveralls
       # Upload test results
       - store_test_results:
           path: test-results
