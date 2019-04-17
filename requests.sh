@@ -1,3 +1,6 @@
+# Add some strict rules to bash
+set -euo pipefail
+
 # Where execution starts
 main() {
     case $1 in
@@ -44,45 +47,33 @@ setenv() {
     export LANG=C.UTF-8
 }
 
-# Reverts installation changes if last command fails
-try() {
-    # Run arguments as command
-    $*
-    # If it exits with non-zero value, cleanup intsallation
-    if [ $? -ne 0 ]; then
-        echo "[requests]: command \"$*\" failed"
-        # cleanup
-        exit 1
-    fi
-}
-
 # Installs necessary dependencies and sets the environmeny
 build() {
     echo "[requests]: building project"
 
     # Install pipenv using pip3
-    try pip3 install pipenv
+    pip3 install pipenv
 
     # Install npm dependencies
-    try npm install
+    npm install
 
     # Bundle js files
-    try npm run build:prod
+    npm run build:prod
 
     # Set env variables
-    try setenv
+    setenv
 
     # Install pipenv dependecies
-    try pipenv install
+    pipenv install
 
     # Activate virtual env
-    try pipenv shell
+    pipenv shell
 
     # Apply migrations
-    try flask db upgrade -d server/migrations
+    flask db upgrade -d server/migrations
 
     # Add seeds to database
-    try flask model seed all
+    flask model seed all
 }
 
 # Starts the server
