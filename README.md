@@ -45,12 +45,16 @@ See Requests running [here](...)
     flask run
     ```
 
-## TESTING
+## ✅ TESTING
 ##### REQUIREMENTS
-- Sames as installation requirements
+- Sames as installation requirements.
 
 ##### STEPS
-- You can run all the tests with:
+- You can run all the tests in a single swoop. Test coverage is currently 100%.
+    ```bash
+    pipenv shell
+    ```
+
     ```bash
     pytest
     ```
@@ -59,7 +63,7 @@ See Requests running [here](...)
 
 - The tests are all unit tests, so you can run them individually
     ```bash
-    pytest -k test_client_model_get_all_rows_correctly_after_saving
+    pytest -k test_client_model_gets_all_rows_correctly_after_saving
     ```
 
 

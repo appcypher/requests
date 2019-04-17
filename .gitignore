@@ -5,6 +5,5 @@ node_modules
 .env
 !client/dist/favicon.svg
 htmlcov/
-.coverage
 **/.DS_Store
 .pytest_cache/

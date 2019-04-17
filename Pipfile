@@ -27,8 +27,6 @@ yapf = "*"
 # Linters
 pylint = "*"
 flake8 = "*"
-# Testing framework
-pytest = "*"
 # PYTONPATH pytest plugin
 pytest-pythonpath = "*"
 # CORS
@@ -37,8 +35,12 @@ flask-cors = "*"
 flask-migrate = "*"
 # API expressiveness and documentation
 flask-restplus = "*"
+# Testing framework
+pytest = "*"
 # Pytest coverage reporting tool
 pytest-cov = "*"
+# Coveralls coverage reporter
+coveralls = "*"
 
 [requires]
 python_version = "3.7"

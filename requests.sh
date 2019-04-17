@@ -60,11 +60,8 @@ build() {
     # Bundle js files
     npm run build:prod
 
-    # Set env variables
-    setenv
-
     # Install pipenv dependecies
-    pipenv install
+    pipenv install --dev
 
     # Activate virtual env
     pipenv shell
