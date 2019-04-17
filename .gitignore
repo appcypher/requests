@@ -7,3 +7,4 @@ node_modules
 htmlcov/
 .coverage
 **/.DS_Store
+.pytest_cache/
