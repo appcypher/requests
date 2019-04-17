@@ -45,11 +45,22 @@ See Requests running [here](...)
     flask run
     ```
 
-- Run tests
+## TESTING
+##### REQUIREMENTS
+- Sames as installation requirements
+
+##### STEPS
+- You can run all the tests with:
     ```bash
     pytest
     ```
 
+    Some useful defaults are already set in [pytest.ini file](pytest.ini)
+
+- The tests are all unit tests, so you can run them individually
+    ```bash
+    pytest -k test_client_model_get_all_rows_correctly_after_saving
+    ```
 
 
 
@@ -177,12 +188,11 @@ Check [here](https://documenter.getpostman.com/view/4928310/S1EQSHJX) for more i
 
 
 
+### 👍 CREDITS
+This project is made more nicer looking. Thanks to the free work of these awesome [graphic designers](ATTRIBUTIONS.md)
+
+
+
 
 ### 🤝 LICENSE
 [Apache License 2.0](LICENSE)
-
-
-
-
-### 👍 CREDITS
-This project is made more nicer looking. Thanks to the free work of these awesome [graphic designers](ATTRIBUTIONS.md)
