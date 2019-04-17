@@ -5,6 +5,7 @@
 
 [![CircleCI](https://circleci.com/gh/appcypher/requests.svg?style=svg)](https://circleci.com/gh/appcypher/requests)
 [![Coverage Status](https://coveralls.io/repos/github/appcypher/requests/badge.svg?branch=master)](https://coveralls.io/github/appcypher/requests?branch=master)
+[![Maintainability](https://api.codeclimate.com/v1/badges/dda736c170b430d64dc7/maintainability)](https://codeclimate.com/github/appcypher/requests/maintainability)
 ![Maintained](https://img.shields.io/maintenance/yes/2019.svg)
 
 Requests is part of a larger application. It allows the staff of an imaginary company to register and track client's feature requests.
