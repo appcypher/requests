@@ -9,21 +9,27 @@ def seed_comment():
     """
     # Create seeds for comments.
     comments = [
-        Comment(message='I will be working on this soon',
-                request_id=1,
-                staff_id=1),
-        Comment(message='I think we should wait for confirmation',
-                request_id=1,
-                staff_id=2),
-        Comment(message='You are right. Let\'s do that',
-                request_id=1,
-                staff_id=2),
-        Comment(message='How long will the Paypal support take?',
-                request_id=2,
-                staff_id=2),
-        Comment(message='Using other similar sprint, I\'m guessing one week?',
-                request_id=2,
-                staff_id=3),
+        Comment(
+            message='I will be working on this soon', request_id=1, staff_id=1
+        ),
+        Comment(
+            message='I think we should wait for confirmation',
+            request_id=1,
+            staff_id=2
+        ),
+        Comment(
+            message='You are right. Let\'s do that', request_id=1, staff_id=2
+        ),
+        Comment(
+            message='How long will the Paypal support take?',
+            request_id=2,
+            staff_id=2
+        ),
+        Comment(
+            message='Using other similar sprint, I\'m guessing one week?',
+            request_id=2,
+            staff_id=3
+        ),
     ]
 
     # Save to the database.

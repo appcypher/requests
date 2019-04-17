@@ -74,7 +74,8 @@ def test_flask_seed_model_cli_seeds_to_db_with_staff_option(cli_app):
 
 
 def test_flask_seed_model_cli_seeds_to_db_with_comment_option(
-        cli_app, multiple_valid_request_models):
+    cli_app, multiple_valid_request_models
+):
     """
     Tests that comment table is populated `flask seed model` when passed a
     `comment` option.
@@ -96,7 +97,8 @@ def test_flask_seed_model_cli_seeds_to_db_with_comment_option(
 
 
 def test_flask_seed_model_cli_seeds_to_db_with_request_option(
-        cli_app, multiple_valid_client_models, multiple_valid_staff_models):
+    cli_app, multiple_valid_client_models, multiple_valid_staff_models
+):
     """
     Tests that request table is populated `flask seed model` when passed a
     `request` option.

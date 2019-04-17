@@ -57,8 +57,9 @@ def test_seed_comment_saves_comments_to_db(multiple_valid_request_models):
     assert len(comments) == 5
 
 
-def test_seed_request_saves_requests_to_db(multiple_valid_staff_models,
-                                           multiple_valid_client_models):
+def test_seed_request_saves_requests_to_db(
+    multiple_valid_staff_models, multiple_valid_client_models
+):
     """
     Tests that `seed_request` function stores requests in the db.
 

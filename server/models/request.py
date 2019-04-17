@@ -26,9 +26,9 @@ class Request(BaseModel):
     resolved = db.Column(db.Boolean, default=False)
     # Relationships
     staff_id = db.Column(db.Integer, db.ForeignKey('staff.id'), nullable=False)
-    client_id = db.Column(db.Integer,
-                          db.ForeignKey('client.id'),
-                          nullable=False)
+    client_id = db.Column(
+        db.Integer, db.ForeignKey('client.id'), nullable=False
+    )
     client = db.relationship('Client', back_populates='requests')
     staff = db.relationship('Staff', back_populates='requests')
     comments = db.relationship('Comment', back_populates='request')

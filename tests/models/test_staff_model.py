@@ -48,7 +48,7 @@ def test_staff_model_does_not_find_row_if_it_does_not_exist(initialize_db):
     assert err.value.status_code == 404
 
 
-def test_staff_model_get_all_rows_correctly_after_saving(valid_staff_model):
+def test_staff_model_gets_all_rows_correctly_after_saving(valid_staff_model):
     """
     Tests that model gets correct number of rows when there is data in the
     table.
@@ -64,7 +64,8 @@ def test_staff_model_get_all_rows_correctly_after_saving(valid_staff_model):
 
 
 def test_staff_model_repr_shows_correctly_if_it_exists(
-        valid_staff_model_no_save):
+    valid_staff_model_no_save
+):
     """
     Tests that model __repr__ row correctly.
 

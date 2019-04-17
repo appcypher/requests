@@ -1,6 +1,8 @@
 """ Module for flask application configuration. """
-from .env import (SECRET_KEY, SQLALCHEMY_DATABASE_URI_TESTING,
-                  SQLALCHEMY_DATABASE_URI_DEVELOPMENT)
+from .env import (
+    SECRET_KEY, SQLALCHEMY_DATABASE_URI_TESTING,
+    SQLALCHEMY_DATABASE_URI_DEVELOPMENT
+)
 
 
 def apply_configuration(app, test_env=False):
@@ -11,8 +13,10 @@ def apply_configuration(app, test_env=False):
         app(Flask): flask application.
     """
 
-    SQLALCHEMY_DATABASE_URI = (SQLALCHEMY_DATABASE_URI_TESTING if test_env else
-                               SQLALCHEMY_DATABASE_URI_DEVELOPMENT)
+    SQLALCHEMY_DATABASE_URI = (
+        SQLALCHEMY_DATABASE_URI_TESTING
+        if test_env else SQLALCHEMY_DATABASE_URI_DEVELOPMENT
+    )
 
     # Secret key fro various stuff
     app.config['SECRET_KEY'] = SECRET_KEY

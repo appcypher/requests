@@ -21,8 +21,9 @@ class RequestEndpoint(Resource):
         request = Request.get_all()
 
         # Create a serialization schema
-        request_schema = RequestSchema(exclude=('staff', 'comments'),
-                                       many=True)
+        request_schema = RequestSchema(
+            exclude=('staff', 'comments'), many=True
+        )
         return {
             'success': True,
             'message': messages['fetched']('requests'),
@@ -59,7 +60,7 @@ class SingleRequestEndpoint(Resource):
     """
 
     def get(self, request_id):
-        """
+        """s
         Gets a specific request feature request and associated comments.
         """
         # Get the requested request
@@ -89,8 +90,7 @@ class RequestCommentsEndpoint(Resource):
         comments = Request.find_by_id(request_id).comments
 
         # Create a serialization schema
-        comments_schema = CommentSchema(exclude=('updated_at'),
-                                        many=True)
+        comments_schema = CommentSchema(exclude=('updated_at'), many=True)
 
         return {
             'success': True,

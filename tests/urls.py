@@ -19,4 +19,3 @@ def clients_url(id):
 
 def staff_url(id):
     return f'{api_url}/staff/{id}'
-

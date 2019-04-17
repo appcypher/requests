@@ -1,9 +1,7 @@
 from urls import requests_url
 
 
-def test_get_requests_succeeds(
-    valid_request_model, client, request_headers
-):
+def test_get_requests_succeeds(valid_request_model, client, request_headers):
     """
     Tests that response is okay.
 

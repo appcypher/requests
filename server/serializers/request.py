@@ -3,8 +3,9 @@ from marshmallow import fields, post_load
 from marshmallow_enum import EnumField
 from models.request import ProductArea
 from models import Client, Staff
-from middleware.validations import (validate_string_length, validate_priority,
-                                    validate_id)
+from middleware.validations import (
+    validate_string_length, validate_priority, validate_id
+)
 from .base import BaseSchema
 from .staff import StaffSchema
 from .comment import CommentSchema
@@ -16,8 +17,9 @@ class RequestSchema(BaseSchema):
     objects.
     """
     title = fields.String(validate=validate_string_length(60), required=True)
-    description = fields.String(validate=validate_string_length(250),
-                                required=True)
+    description = fields.String(
+        validate=validate_string_length(250), required=True
+    )
     product_area = EnumField(ProductArea, by_value=True, required=True)
     target_date = fields.DateTime(required=True)
     priority = fields.Integer(required=True)
@@ -33,5 +35,6 @@ class RequestSchema(BaseSchema):
         """
         Holds post load validations for Request schema
         """
-        validate_priority(client_id=data['client_id'],
-                          priority=data['priority'])
+        validate_priority(
+            client_id=data['client_id'], priority=data['priority']
+        )

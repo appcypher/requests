@@ -50,8 +50,9 @@ def test_comment_model_does_not_find_row_if_it_does_not_exist(initialize_db):
     assert err.value.status_code == 404
 
 
-def test_comment_model_get_all_rows_correctly_after_saving(
-        valid_comment_model):
+def test_comment_model_gets_all_rows_correctly_after_saving(
+    valid_comment_model
+):
     """
     Tests that model gets correct number of rows when there is data in the
     table.
@@ -67,7 +68,8 @@ def test_comment_model_get_all_rows_correctly_after_saving(
 
 
 def test_comment_model_repr_shows_correctly_if_it_exists(
-        valid_comment_model_no_save):
+    valid_comment_model_no_save
+):
     """
     Tests that model __repr__ row correctly.
 
@@ -76,8 +78,10 @@ def test_comment_model_repr_shows_correctly_if_it_exists(
     """
     rep = repr(valid_comment_model_no_save)
 
-    assert rep == ("Comment {'message': 'I will be working on this soon', "
-                   "'request_id': 1, 'staff_id': 1}")
+    assert rep == (
+        "Comment {'message': 'I will be working on this soon', "
+        "'request_id': 1, 'staff_id': 1}"
+    )
 
 
 def test_comment_model_updates_correctly_if_it_exists(valid_comment_model):

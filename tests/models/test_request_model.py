@@ -51,8 +51,9 @@ def test_request_model_does_not_find_row_if_it_does_not_exist(initialize_db):
     assert err.value.status_code == 404
 
 
-def test_request_model_get_all_rows_correctly_after_saving(
-        valid_request_model):
+def test_request_model_gets_all_rows_correctly_after_saving(
+    valid_request_model
+):
     """
     Tests that model gets correct number of rows when there is data in the
     table.
@@ -69,7 +70,8 @@ def test_request_model_get_all_rows_correctly_after_saving(
 
 
 def test_request_model_repr_shows_correctly_if_it_exists(
-        valid_request_model_no_save):
+    valid_request_model_no_save
+):
     """
     Tests that model __repr__ row correctly.
 
@@ -80,7 +82,8 @@ def test_request_model_repr_shows_correctly_if_it_exists(
 
     assert rep.startswith(
         "Request {'title': 'Improve customer care services', "
-        "'description': 'The current customer care services are reported to ")
+        "'description': 'The current customer care services are reported to "
+    )
 
 
 def test_request_model_updates_correctly_if_it_exists(valid_request_model):

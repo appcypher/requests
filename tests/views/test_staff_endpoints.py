@@ -1,4 +1,3 @@
-
 from urls import staff_url
 
 
@@ -38,4 +37,3 @@ def test_get_clients_succeeds_with_non_existent_staff_id_in_params(
     assert not response['success']
     assert response['message'] == 'cannot find specified staff'
     assert res.status_code == 404
-

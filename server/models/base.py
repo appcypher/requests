@@ -13,8 +13,9 @@ class BaseModel(db.Model):
     __abstract__ = True
 
     id = db.Column(db.Integer, primary_key=True)
-    created_at = db.Column(db.DateTime(timezone=True),
-                           server_default=func.now())
+    created_at = db.Column(
+        db.DateTime(timezone=True), server_default=func.now()
+    )
     updated_at = db.Column(db.DateTime(timezone=True), onupdate=func.now())
 
     def save(self):
@@ -57,13 +58,15 @@ class BaseModel(db.Model):
         Raises:
             ClientError: if not row with specified client id does not exist.
         """
-        query = reduce(lambda query, model: query.join(model), includes,
-                       cls.query)
+        query = reduce(
+            lambda query, model: query.join(model), includes, cls.query
+        )
 
         result = query.filter_by(id=id).first()
         if not result:
-            raise ClientError(f'cannot find specified {cls.__name__.lower()}',
-                              404)
+            raise ClientError(
+                f'cannot find specified {cls.__name__.lower()}', 404
+            )
         return result
 
     @classmethod

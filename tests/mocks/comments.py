@@ -47,9 +47,7 @@ def valid_comment_body(valid_request_model):
 
 
 @fixture(scope='function')
-def invalid_comment_body_with_missing_fields(
-    valid_request_model
-):
+def invalid_comment_body_with_missing_fields(valid_request_model):
     """
     A fixture for creating a comment body with missing fields.
 
