@@ -1,6 +1,11 @@
 <h1 align="center">REQUESTS</h1>
 
-![Kinema](media/requests-page-mockup.png)
+![Requests](media/requests-page-mockup.png)
+
+
+[![CircleCI](https://circleci.com/gh/appcypher/requests.svg?style=svg)](https://circleci.com/gh/appcypher/requests)
+[![Coverage Status](https://coveralls.io/repos/github/appcypher/requests/badge.svg?branch=master)](https://coveralls.io/github/appcypher/requests?branch=master)
+![Maintained](https://img.shields.io/maintenance/yes/2019.svg)
 
 Requests is part of a larger application. It allows the staff of an imaginary company to register and track client's feature requests.
 
@@ -45,7 +50,7 @@ See Requests running [here](...)
     flask run
     ```
 
-## ✅ TESTING
+### ✅ TESTING
 ##### REQUIREMENTS
 - Sames as installation requirements.
 
@@ -140,6 +145,8 @@ This project contains a set of AWS specific files (`buildspec.yml` and `deploy.s
 
 ### ↔️ API
 Check [here](https://documenter.getpostman.com/view/4928310/S1EQSHJX) for more information
+
+[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/84067ae32777b6dea8ef)
 
 ##### REQUESTS
 - GET: ```/api/v1/requests``` → Gets all the requests
