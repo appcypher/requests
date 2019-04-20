@@ -1,0 +1,74 @@
+@import "../../assets/scss/common.scss";
+
+sidebar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: $dark-highlight;
+    width: 60px;
+    min-width: 60px;
+    border-right: 1px $border-gray solid;
+
+    .sidebar__avatar {
+        margin-top: 20px;
+        height: 40px;
+        width: 40px;
+        border-radius: 50%;
+        overflow: hidden;
+        cursor: pointer;
+
+        img {
+            height: 100%;
+        }
+    }
+
+    .sidebar__icons {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        margin-top: 50px;
+
+        .sidebar__icon-container {
+            height: 50px;
+            margin: 5px 0;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+
+            &:not(.disabled) {
+                cursor: pointer;
+            }
+
+            .sidebar__side-strip {
+                width: 3.5px;
+                height: 100%;
+                // margin-right: 20%;
+                border-radius: 0 5px 5px 0;
+                position: absolute;
+                left: 0;
+            }
+
+            .sidebar__icon svg {
+                width: 24px;
+            }
+
+            &:hover {
+                background-color: $sidebar-highlight;
+
+                .sidebar__side-strip {
+                    background-color: $primary-highlight;
+                }
+
+                .sidebar__icon  {
+                    transform: scale(1.2);
+                    svg path {
+                        fill: $primary-highlight;
+                    }
+                }
+            }
+        }
+    }
+}

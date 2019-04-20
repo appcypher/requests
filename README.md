@@ -3,6 +3,11 @@
 ![Requests](media/requests-page-mockup.png)
 
 
+![Requests](media/requests-page-mockup-green.png)
+
+You can find the mockups [here](https://www.figma.com/file/CEAsuJTXG1nRShKSMkLdRW4U/Untitled?node-id=0%3A1)
+
+
 [![CircleCI](https://circleci.com/gh/appcypher/requests.svg?style=svg)](https://circleci.com/gh/appcypher/requests)
 [![Coverage Status](https://coveralls.io/repos/github/appcypher/requests/badge.svg?branch=master)](https://coveralls.io/github/appcypher/requests?branch=master)
 [![Maintainability](https://api.codeclimate.com/v1/badges/dda736c170b430d64dc7/maintainability)](https://codeclimate.com/github/appcypher/requests/maintainability)
@@ -46,6 +51,16 @@ See Requests running [here](...)
     pipenv shell
     ```
 
+- Apply migration files.
+    ```bash
+    flask db upgrade -d server/migrations
+    ```
+
+- Add seeds to the database.
+    ```bash
+    flask model seed all
+    ```
+
 - Start the flask app
     ```bash
     flask run
@@ -53,10 +68,10 @@ See Requests running [here](...)
 
 ### ✅ TESTING
 ##### REQUIREMENTS
-- Sames as installation requirements.
+- Same as [installation](#-installation) requirements.
 
 ##### STEPS
-- You can run all the tests in a single swoop. Test coverage is currently 100%.
+- You can run all the tests in a single command.
     ```bash
     pipenv shell
     ```
@@ -80,7 +95,7 @@ See Requests running [here](...)
 
 
 ##### STEPS
-- Start all the project's containers togther with docker-compose
+- Start all the project's containers together with docker-compose
     ```bash
     docker-compose -f docker/compose.yml up
     ```
@@ -115,54 +130,57 @@ See Requests running [here](...)
 
 
 
-### 🚀 DEPLOYMENT TO [AWS ECS]()
-This project contains a set of AWS specific files (`buildspec.yml` and `deploy.sh`) for automating CI/CD deployment. The deployment process relies on the following AWS automation services:
+### 🚀 DEPLOYMENT TO [AWS ECS](https://aws.amazon.com/ecs/)
+This project contains aws config files and scripts for automating deployment. The deployment process relies on the following AWS automation services:
 - CodePipeline ...
 - CodeBuild ...
-- CodeDeploy ...
-- CodeCommit ...
 
 ##### REQUIREMENTS
-- [AWS ECS](https://aws.amazon.com/ecs/) - Amazon container orchestration services
-- [AWS ECR](https://aws.amazon.com/ecr/) - Amazon docker container registry
+- [AWS](https://aws.amazon.com) - Amazon web services
 - [Github](https://github.com/) - Git repository hub
-- [ECS CLI](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ECS_CLI_installation.html) - Command line tool managing Amazon ECS setup remotely
+- [AWS EB CLI](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/eb-cli3-install.html) - Command line tool for managing Amazon Elastic Beanstalk (EB) applications remotely
 
 ##### STEPS
-- Start
-
+- For the following to work, you need to have [configured](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-configure.html) your AWS CLI using your EC2 [keypairs](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html).
 
 
 
 
 ### ⚙️ AVAILABLE TASK RUNNERS
-- ```flask model seed all``` → Seeds the database with important initial data
-- ```npm run build:dev:watch``` → Builds the frontend code with optimizations turned on and sourcemap
-- ```npm run build:dev:watch``` → Watches the frontend code for any change and rebuilds with debug options activated for development ease
+- ```flask model seed all``` → Seeds the database with relevant initial data
+- ```npm run build:dev:watch``` → Builds the frontend code with optimizations turned on and generates a sourcemap
+- ```npm run build:dev:watch``` → Watches the frontend code for any change and rebuilds with debug options enabled
+- ```sh requests.sh --help``` → Shows helpful information about `request.sh` script
+- ```sh requests.sh build``` → Downloads and builds the projects dependencies
+- ```sh requests.sh start``` → Starts the flask application using a Gunicorn (wsgi) server
 
 
 
 
 
 ### ↔️ API
-Check [here](https://documenter.getpostman.com/view/4928310/S1EQSHJX) for more information
+- A detailed documentation of the API is available [here](https://documenter.getpostman.com/view/4928310/S1EQSHJX).
 
-[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/84067ae32777b6dea8ef)
+- You can also have access to the project's Postman collection with the button below.
+
+    [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/84067ae32777b6dea8ef)
+
+- This project doesn't do any user authentication, it is assumed the larger app has this figured out already.
 
 ##### REQUESTS
 - GET: ```/api/v1/requests``` → Gets all the requests
-- POST: ```/api/v1/requests``` → Saves requests
-- GET: ```/api/v1/requests/:id``` → Gets a request with specified id
+- POST: ```/api/v1/requests``` → Saves a request
+- GET: ```/api/v1/requests/:id``` → Gets the request with the specified id
 
 ##### COMMENTS
 - GET: ```/api/v1/requests/:id/comments``` → Gets all the comments under a request
 - POST: ```/api/v1/requests/:id/comments``` →  Adds a new comment under a request
 
 ##### STAFF
-- GET: ```/api/v1/staff/:id``` →  Gets a request with specified id
+- GET: ```/api/v1/staff/:id``` →  Gets the staff with the specified id
 
 ##### CLIENT
-- GET: ```/api/v1/client/:id``` →  Adds a new comment under a request
+- GET: ```/api/v1/client/:id``` →  Gets the client with the specified id
 
 
 
@@ -199,9 +217,8 @@ Check [here](https://documenter.getpostman.com/view/4928310/S1EQSHJX) for more i
 - ```Pytest``` → Testing framework
 
 
-
 ### 👍 CREDITS
-This project is made more nicer looking. Thanks to the free work of these awesome [graphic designers](ATTRIBUTIONS.md)
+This project looks nicer; thanks to the free icons and logos provided by these awesome [creators](CREDITS.md)
 
 
 

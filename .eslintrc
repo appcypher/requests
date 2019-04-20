@@ -1,9 +1,7 @@
 {
     "extends": "airbnb",
     "globals": {
-      "expect": true,
-      "beforeAll": true,
-      "afterAll": true
+      "location": true,
     },
     "rules": {
       "no-unused-vars": 0

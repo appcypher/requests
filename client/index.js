@@ -1,12 +1,7 @@
-// Libraries
 import ko from 'knockout';
-// Components
-import './components/view';
+import './components';
+import setupEvents from './utilities/events';
 
-class ViewModel {
-  constructor() {
-    this.inputValue = ko.observable('Hello');
-  }
-}
+setupEvents();
 
-ko.applyBindings(new ViewModel(), document.getElementById('app'));
+ko.applyBindings({}, document.getElementById('app'));

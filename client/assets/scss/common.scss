@@ -1,0 +1,44 @@
+// Styles common to all components
+
+// ---------------------- COLORS ----------------------------- //
+
+$dark: #272A41;
+$dark-highlight: #1F2234;
+$sidebar-highlight: rgb(21, 23, 37);
+
+// $primary-highlight: #EC770C;
+$primary-highlight: #0BD071;
+
+$text-gray: #C5C5C5;
+$text-gray-mid: #A5A5A5;
+$text-gray-low: #646676;
+
+$icon-gray: #646676;
+
+$border-gray: #5f6162;
+
+$label-green: #11651A;
+$label-yellow: #A4B200;
+$label-red: #A71C3D;
+
+
+$completed-red: #EC770C;
+$completed-green: #0BD071;
+
+
+.disabled {
+    cursor: not-allowed;
+}
+
+.border {
+    margin-top: 20px;
+    height: 1px;
+    background: repeating-linear-gradient(to right, rgba(0, 0, 0, 0.3) 0, rgba(0, 0, 0, 0.3) 5px, transparent 5px, transparent 12px)
+}
+
+
+@mixin hide() {
+    &.hide {
+        display: none;
+    }
+}

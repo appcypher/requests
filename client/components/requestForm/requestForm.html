@@ -1,0 +1,69 @@
+<div class="request-form__background hide">
+    <div class="request-form__container">
+        <!-- Top bar -->
+        <div class="request-form__top-bar">REQUEST FORM</div>
+
+        <!-- Form -->
+        <form action="" class="request-form__form">
+            <!-- Title -->
+            <div class="request-form__title">
+                <div class="request-form__icon" data-bind="html: title"></div>
+
+                <input type="text" class="request-form__title-input" placeholder="Add a title">
+            </div>
+
+            <!-- Client -->
+            <div class="request-form__client">
+                <div class="request-form__icon" data-bind="html: client"></div>
+
+                <input type="text" class="request-form__client-input" placeholder="Select client">
+            </div>
+
+            <!-- Priority -->
+            <div class="request-form__priority">
+                <div class="request-form__icon" data-bind="html: priority"></div>
+
+                <input type="text" class="request-form__priority-input" placeholder="Set priority level">
+            </div>
+
+            <!-- Product area -->
+            <div class="request-form__area">
+                <div class="request-form__icon" data-bind="html: label"></div>
+
+                <input type="text" class="request-form__area-input" placeholder="Choose a category">
+            </div>
+
+            <!-- Date -->
+            <div class="request-form__date">
+                <div class="request-form__icon" data-bind="html: date" placeholder="Due date"></div>
+
+                <input type="date" class="request-form__date-input">
+            </div>
+
+            <!-- Description -->
+            <div class="request-form__description">
+                <div class="request-form__description-top-bar">
+                    <div class="request-form__icon" data-bind="html: description"></div>
+
+                    <div class="request-form__description-title">Description</div>
+                </div>
+
+                <textarea class="request-form__description-input" placeholder="Describe the request"></textarea>
+            </div>
+
+        </form>
+
+        <!-- Submit section -->
+        <div class="request-form__bottom-bar">
+            <button class="request-form__button">CREATE</button>
+        </div>
+
+        <div class="request-form__fold-container-tl">
+            <div class="request-form__fold-tl"></div>
+        </div>
+
+        <div class="request-form__fold-container-br">
+            <div class="request-form__fold-br"></div>
+        </div>
+    </div>
+</div>

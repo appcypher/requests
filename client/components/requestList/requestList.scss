@@ -1,0 +1,227 @@
+@import "../../assets/scss/common.scss";
+
+request-list {
+    background-color: $dark;
+    flex: 1 1 auto;
+    border-right: 1px $border-gray solid;
+    display: flex;
+    flex-direction: column;
+    color: $text-gray;
+    position: relative;
+
+    .request-list__top-bar {
+        margin-top: 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .request-list__requests-strip {
+            max-width: 250px;
+            height: 35px;
+            padding-right: 10px;
+            display: flex;
+            align-items: center;
+            flex: 1 1 auto;
+            padding-left: 50px;
+            background-color: $dark-highlight;
+            border-radius: 0 50px 50px 0;
+        }
+
+        .request-list__search-bar {
+            margin-right: 20px;
+            background-color: $dark-highlight;
+            width: auto;
+            height: 27px;
+            padding: 0 3px;
+            display: flex;
+            align-items: center;
+            border-radius: 50px;
+            box-sizing: border-box;
+
+            .request-list__search-icon svg {
+                width: 20px;
+                margin-left: 5px;
+                margin-top: 5px;
+                cursor: pointer;
+            }
+
+            .request-list__search-bar-input-container {
+                margin: 0 10px;
+                flex: 1 1 auto;
+
+                input {
+                    outline: none;
+                    border: none;
+                    background-color: inherit;
+                    color: $text-gray;
+                    font-size: 15px;
+                    display: flex;
+                    align-items: center;
+
+                    ::placeholder {
+                        font-size: 15px;
+                    }
+
+                }
+            }
+        }
+    }
+
+
+    .request-list__content {
+        margin: 20px 0 10px 0;
+        height: 100%;
+        width: auto;
+        overflow-y: scroll;
+
+        .request-list__days {
+            height: 100%;
+            width: auto;
+
+            li.request-list__day {
+                margin-bottom: 30px;
+                width: auto;
+
+                .request-list__date-bar {
+                    display: flex;
+                    padding-bottom: 5px;
+                    border-bottom: 1px $text-gray-low solid;
+                    margin: 10px 50px;
+
+                    .request-list__dropdown-icon {
+                        cursor: pointer;
+                        width: 13px;
+                        height: 13px;
+                        padding: 5px;
+                        border-radius: 50%;
+                        border: 1px solid transparent;
+
+                        svg {
+                            width: 13px;
+                            height: 13px;
+                        }
+
+                        &:hover {
+                            background-color: $dark-highlight;
+                            border: 1px solid rgba(0, 0, 0, .5);
+                        }
+                    }
+
+                    .request-list__date {
+                        display: flex;
+                        align-items: center;
+                        color: #fff;
+                        margin-left: 20px;
+                    }
+
+                    .request-list__count {
+                        display: flex;
+                        align-items: center;
+                        margin-left: 7px;
+                        color: $text-gray-low;
+                    }
+                }
+
+                .request-list__entries {
+                    .request-list__entry {
+                        margin: 0 30px;
+                        padding: 10px 20px;
+                        cursor: pointer;
+                        display: flex;
+                        align-items: center;
+
+                        &:hover {
+                            border-radius: 5px;
+                            background-color: $dark-highlight;
+                            transform: scale(1.004);
+                            box-shadow: 2px 0 2px 0 rgba(0, 0, 0, 0.2);
+                        }
+
+                        &.checked {
+                            .request-list__completed-icon svg path {
+                                fill: $primary-highlight;
+                            }
+                        }
+
+                        .request-list__completed-icon svg {
+                            width: 25px;
+                        }
+
+                        .request-list__issue-number {
+                            color: #fff;
+                            font-size: 18px;
+                            margin-left: 15px;
+                        }
+
+                        .request-list__description {
+                            // font-size: 18px;
+                            margin-left: 15px;
+                            white-space: nowrap;
+                            width: 10px;
+                            overflow: hidden;
+                            text-overflow: ellipsis;
+                            flex: 1 1 auto;
+                            text-align: center;
+                        }
+
+                        .request-list__priority-label {
+                            font-size: 14px;
+                            color: #fff;
+                            width: 10px;
+                            height: 10px;
+                            margin-left: 15px;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            background-color: $label-green;
+                            padding: 4px;
+                            border-radius: 5px;
+                        }
+
+                        .request-list__time {
+                            margin-left: 15px;
+                        }
+
+                        .request-list__client-avatar {
+                            margin-left: 15px;
+                            height: 30px;
+                            width: 30px;
+                            border-radius: 50%;
+                            overflow: hidden;
+
+                            img {
+                                height: 100%;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .request-list__add-button {
+        width: 45px;
+        height: 45px;
+        border-radius: 50%;
+        position: absolute;
+        bottom: 50px;
+        right: 30px;
+        outline: none;
+        border: none;
+        box-shadow: 1px 1px 5px 5px rgba(0, 0, 0, 0.1);
+        background-color: $primary-highlight;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+
+        svg {
+            width: 18px;
+        }
+
+        &:hover {
+            transform: scale(1.1);
+            background-color: darken($primary-highlight, 10%);
+        }
+    }
+}

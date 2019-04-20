@@ -48,7 +48,7 @@ module.exports = {
       ],
     },
     {
-      test: /\.(ttf|eot|woff|woff2|svg)(\?v=\d+\.\d+\.\d+)?$/,
+      test: /\.(ttf|eot|woff|woff2)(\?v=\d+\.\d+\.\d+)?$/,
       use: [
         {
           loader: 'url-loader',
@@ -56,6 +56,10 @@ module.exports = {
         },
       ],
     },
+    {
+      test: /\.svg$/,
+      loader: 'svg-inline-loader'
+    }
     ],
   },
   plugins: [
