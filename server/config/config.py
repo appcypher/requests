@@ -1,7 +1,6 @@
 """ Module for flask application configuration. """
 from .env import (
-    SECRET_KEY, SQLALCHEMY_DATABASE_URI_TESTING,
-    SQLALCHEMY_DATABASE_URI_DEVELOPMENT
+    SECRET_KEY, SQLALCHEMY_DATABASE_URI_TESTING, SQLALCHEMY_DATABASE_URI
 )
 
 
@@ -13,9 +12,9 @@ def apply_configuration(app, test_env=False):
         app(Flask): flask application.
     """
 
-    SQLALCHEMY_DATABASE_URI = (
+    database_uri = (
         SQLALCHEMY_DATABASE_URI_TESTING
-        if test_env else SQLALCHEMY_DATABASE_URI_DEVELOPMENT
+        if test_env else SQLALCHEMY_DATABASE_URI
     )
 
     # Secret key fro various stuff
@@ -25,7 +24,7 @@ def apply_configuration(app, test_env=False):
     app.config['TESTING'] = test_env
 
     # The postgres database URI
-    app.config['SQLALCHEMY_DATABASE_URI'] = SQLALCHEMY_DATABASE_URI
+    app.config['SQLALCHEMY_DATABASE_URI'] = database_uri
 
     # A deprecated SQLAlchemy feature that needs to be turned off
     app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False

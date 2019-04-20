@@ -1,11 +1,14 @@
 # Add some strict rules to bash
-set -euo pipefail
+set -eu
 
 # Where execution starts
 main() {
     case $1 in
         build )
             build
+        ;;
+        start )
+            start
         ;;
         cleanup )
             cleanup
@@ -39,7 +42,7 @@ help() {
 }
 
 # Sets needed environment variables
-setenv() {
+set_env_vars() {
     echo "[requests]: setting environment variables"
 
     # The following lines are needed to prevent pipenv from throwing unknown-locale error
@@ -60,30 +63,22 @@ build() {
     # Bundle js files
     npm run build:prod
 
+    # Set locale environmwnt variables
+    set_env_vars
+
     # Install pipenv dependecies
     pipenv install --dev
-
-    # Activate virtual env
-    pipenv shell
-
-    # Apply migrations
-    flask db upgrade -d server/migrations
-
-    # Add seeds to database
-    flask model seed all
 }
 
 # Starts the server
 start() {
     echo "[requests]: starting flask app"
 
-    # Disable all ports except 5000
-    sudo ufw enable && sudo ufw allow 5000
-
-    # Move to server directory
+    # Set locale environmwnt variables
+    set_env_vars
 
     # Activate virtual environment and start wsgi server.
-    pipenv run gunicorn --pythonpath ./server --workers 2 manage:flask_app -b 127.0.0.1:5000
+    pipenv run gunicorn --pythonpath ./server --workers 2 manage:flask_app -b 0.0.0.0:5000
 }
 
 # Removes projects build dependencies

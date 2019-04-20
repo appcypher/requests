@@ -9,9 +9,9 @@ SQLALCHEMY_DATABASE_URI_TESTING = environ.get(
     "SQLALCHEMY_DATABASE_URI_TESTING"
 )
 
-# Development database URI
-SQLALCHEMY_DATABASE_URI_DEVELOPMENT = environ.get(
-    "SQLALCHEMY_DATABASE_URI_DEVELOPMENT"
+# Development/production database URI
+SQLALCHEMY_DATABASE_URI = environ.get(
+    "SQLALCHEMY_DATABASE_URI"
 )
 
 # Secret key for variosus stuff

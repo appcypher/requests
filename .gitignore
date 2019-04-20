@@ -3,7 +3,8 @@ node_modules
 **/__pycache__
 **/dist/*
 .env
-!client/dist/favicon.svg
+!client/dist/brand.png
 htmlcov/
 **/.DS_Store
 .pytest_cache/
+docker/database
