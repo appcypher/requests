@@ -1,6 +1,24 @@
 """ Module that holds middleware validators. """
 from errors import ClientError
 from models import Request
+from marshmallow import ValidationError
+from datetime import datetime
+
+
+def validate_date(date):
+    """
+    Checks if date is a time in the future..
+
+    Args:
+        date (datetime): date input.
+
+    Raises:
+        ValidationError: if date is not a time in the future.
+    """
+    present = datetime.now()
+
+    if date.date() < present.date():
+        raise ValidationError('date can only be a later time in the future')
 
 
 def validate_string_length(length):
@@ -15,8 +33,8 @@ def validate_string_length(length):
     """
 
     def validate(string):
-        if len(string) > length:
-            raise ClientError(f'string cannot be longer than {length}')
+        if not string or len(string) > length:
+            raise ValidationError(f'string cannot be longer than {length}')
 
     return validate
 

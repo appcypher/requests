@@ -255,5 +255,34 @@ def test_post_requests_fails_with_invalid_string_length_in_body(
     response = res.get_json()
 
     assert not response['success']
-    assert response['message'] == 'string cannot be longer than 250'
+    assert response['message'] == {
+        'description': ['string cannot be longer than 250']
+    }
+    assert res.status_code == 400
+
+
+def test_post_requests_fails_with_invalid_invalid_target_date_in_body(
+    invalid_request_body_with_invalid_date, client, request_headers
+):
+    """
+    Tests that response shows failure when request body has invalid
+    target date.
+
+    Args:
+        invalid_request_body_with_invalid_string_length (dict): a request body
+            with invalid string length
+        client (FlaskClient): a test client created by a fixture.
+        request_headers (dict): a header created by a fixture.
+    """
+    res = client.post(
+        requests_url(),
+        headers=request_headers,
+        json=invalid_request_body_with_invalid_date
+    )
+    response = res.get_json()
+
+    assert not response['success']
+    assert response['message'] == {
+        'target_date': ['date can only be a later time in the future']
+    }
     assert res.status_code == 400

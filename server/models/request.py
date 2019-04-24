@@ -21,7 +21,9 @@ class Request(BaseModel):
     title = db.Column(db.String(250), nullable=False)
     description = db.Column(db.String(250), nullable=False)
     product_area = db.Column(db.Enum(ProductArea), nullable=False)
-    target_date = db.Column(db.DateTime(timezone=True), nullable=False)
+    target_date = db.Column(
+        db.DateTime(timezone=True), nullable=False
+    )
     priority = db.Column(db.Integer, nullable=True)
     resolved = db.Column(db.Boolean, default=False)
     # Relationships

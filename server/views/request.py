@@ -60,14 +60,14 @@ class SingleRequestEndpoint(Resource):
     """
 
     def get(self, request_id):
-        """s
+        """
         Gets a specific request feature request and associated comments.
         """
         # Get the requested request
         request = Request.find_by_id(request_id)
 
         # Create a serialization schema
-        request_schema = RequestSchema(exclude=('created_at', 'updated_at'))
+        request_schema = RequestSchema(exclude=('updated_at'))
 
         return {
             'success': True,

@@ -4,11 +4,13 @@ from marshmallow_enum import EnumField
 from models.request import ProductArea
 from models import Client, Staff
 from middleware.validations import (
-    validate_string_length, validate_priority, validate_id
+    validate_string_length, validate_priority, validate_id,
+    validate_date
 )
 from .base import BaseSchema
 from .staff import StaffSchema
 from .comment import CommentSchema
+from .client import ClientSchema
 
 
 class RequestSchema(BaseSchema):
@@ -21,12 +23,13 @@ class RequestSchema(BaseSchema):
         validate=validate_string_length(250), required=True
     )
     product_area = EnumField(ProductArea, by_value=True, required=True)
-    target_date = fields.DateTime(required=True)
+    target_date = fields.DateTime(validate=validate_date, required=True)
     priority = fields.Integer(required=True)
     client_id = fields.Integer(validate=validate_id(Client), required=True)
     staff_id = fields.Integer(validate=validate_id(Staff), required=True)
     comments = fields.Integer(required=True)
     resolved = fields.Bool(dump_only=False)
+    client = fields.Nested(ClientSchema())
     staff = fields.Nested(StaffSchema())
     comments = fields.Nested(CommentSchema(), many=True)
 
