@@ -56,7 +56,6 @@ class ViewModel {
           .then(({ data }) => {
             hideLoader();
             this.request(data.data);
-            console.log('>>>>>', this.request());
             adjustCommentInput();
           })
           .catch((error) => {
