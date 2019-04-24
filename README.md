@@ -1,9 +1,6 @@
-<h1 align="center">REQUESTS</h1>
-
 ![Requests](media/requests-page-mockup.png)
 
-
-![Requests](media/requests-page-mockup-green.png)
+<h1 align="center">REQUESTS</h1>
 
 You can find the mockups [here](https://www.figma.com/file/CEAsuJTXG1nRShKSMkLdRW4U/Untitled?node-id=0%3A1)
 

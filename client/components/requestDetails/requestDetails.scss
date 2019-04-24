@@ -9,7 +9,6 @@ request-details {
 
     .request-details__top-bar {
         height: 50px;
-        // background-color:green; ///
         display: flex;
         justify-content: flex-end;
         align-items: center;
@@ -30,7 +29,7 @@ request-details {
                 margin-right: 5px;
             }
 
-            &.completed {
+            &.resolved {
                 &:before {
                     background-color: $completed-green;
                 }
@@ -168,7 +167,7 @@ request-details {
 
             .request-details__description-top-bar {
                 display: flex;
-                padding-bottom: 5px;
+                padding-bottom: 10px;
                 border-bottom: 1px $text-gray-low solid;
                 position: relative;
 
@@ -219,7 +218,7 @@ request-details {
 
             .request-details__comment-top-bar {
                 display: flex;
-                padding-bottom: 5px;
+                padding-bottom: 10px;
                 border-bottom: 1px $text-gray-low solid;
                 position: relative;
 

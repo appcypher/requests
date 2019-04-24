@@ -2,66 +2,55 @@
     <div class="request-form__container">
         <!-- Top bar -->
         <div class="request-form__top-bar">REQUEST FORM</div>
-
         <!-- Form -->
         <form action="" class="request-form__form">
             <!-- Title -->
             <div class="request-form__title">
-                <div class="request-form__icon" data-bind="html: title"></div>
-
-                <input type="text" class="request-form__title-input" placeholder="Add a title">
+                <div class="request-form__icon" data-bind="html: titleIcon"></div>
+                <input type="text" class="request-form__title-input" placeholder="Add a title" data-bind="value: title">
             </div>
-
             <!-- Client -->
             <div class="request-form__client">
-                <div class="request-form__icon" data-bind="html: client"></div>
-
-                <input type="text" class="request-form__client-input" placeholder="Select client">
+                <div class="request-form__icon" data-bind="html: clientIcon"></div>
+                <input type="text" class="request-form__client-input" placeholder="Select client" data-bind="value: client, valueUpdate: 'keyup'">
+                <ul class="request-form__select hide" data-bind="foreach: clients">
+                    <li data-bind="text: name, click: $parent.selectClient"></li>
+                </ul>
             </div>
-
             <!-- Priority -->
             <div class="request-form__priority">
-                <div class="request-form__icon" data-bind="html: priority"></div>
-
-                <input type="text" class="request-form__priority-input" placeholder="Set priority level">
+                <div class="request-form__icon" data-bind="html: priorityIcon"></div>
+                <input type="number" min="1" max="9" class="request-form__priority-input" placeholder="Set priority level" data-bind="value: priority">
             </div>
-
             <!-- Product area -->
             <div class="request-form__area">
-                <div class="request-form__icon" data-bind="html: label"></div>
-
-                <input type="text" class="request-form__area-input" placeholder="Choose a category">
+                <div class="request-form__icon" data-bind="html: labelIcon"></div>
+                <input type="text" class="request-form__area-input" placeholder="Choose a category" data-bind="value: productArea, valueUpdate: 'keyup'">
+                <ul class="request-form__select hide" data-bind="foreach: productAreas">
+                    <li data-bind="text: name, click: $parent.selectProductArea"></li>
+                </ul>
             </div>
-
             <!-- Date -->
             <div class="request-form__date">
-                <div class="request-form__icon" data-bind="html: date" placeholder="Due date"></div>
-
-                <input type="date" class="request-form__date-input">
+                <div class="request-form__icon" data-bind="html: dateIcon" placeholder="Due date"></div>
+                <input type="date" class="request-form__date-input" data-bind="value: dueDate">
             </div>
-
             <!-- Description -->
             <div class="request-form__description">
                 <div class="request-form__description-top-bar">
-                    <div class="request-form__icon" data-bind="html: description"></div>
-
+                    <div class="request-form__icon" data-bind="html: descriptionIcon"></div>
                     <div class="request-form__description-title">Description</div>
                 </div>
-
-                <textarea class="request-form__description-input" placeholder="Describe the request"></textarea>
+                <textarea class="request-form__description-input" placeholder="Describe the request" data-bind="value: description"></textarea>
             </div>
-
         </form>
-
         <!-- Submit section -->
         <div class="request-form__bottom-bar">
-            <button class="request-form__button">CREATE</button>
+            <button class="request-form__button" data-bind="click: submit">CREATE</button>
         </div>
-
         <div class="request-form__fold-container-tl">
             <div class="request-form__fold-tl"></div>
         </div>
-
         <div class="request-form__fold-container-br">
             <div class="request-form__fold-br"></div>
         </div>

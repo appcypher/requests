@@ -1,0 +1,21 @@
+@import "../../assets/scss/common.scss";
+
+
+
+.loader {
+    border: 7px solid #959595;
+    border-top: 7px solid $text-gray-low;
+    border-radius: 50%;
+    width: 80px;
+    height: 80px;
+    animation: spin 2s linear infinite;
+
+    @include hide();
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+

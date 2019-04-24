@@ -51,6 +51,37 @@
     }
 }
 
+@mixin select() {
+    .request-form__select {
+        background-color: $dark-highlight;
+        position: absolute;
+        height: auto;
+        width: 95%;
+        margin-top: 30px;
+        margin-left: 10px;
+        padding: 10px;
+        box-sizing: border-box;
+        border-radius: 0 0 5px 5px;
+        box-shadow: 1px 1px 0 0 rgba(0, 0, 0, .3);
+        z-index: 1;
+
+        @include hide();
+
+        li {
+            box-sizing: border-box;
+            padding: 5px;
+            cursor: pointer;
+            font-size: 15px;
+
+            &:hover {
+                background-color: #fff;
+                color: black;
+                border-radius: 2px;
+            }
+        }
+    }
+}
+
 @mixin dropdown() {
     .request-form__dropdown-icon {
         cursor: pointer;
@@ -89,7 +120,7 @@
     @include hide();
 
     .request-form__container {
-        // max-width: 450px;
+        max-width: 450px;
         width: 450px;
         height: 600px;
         background-color: $dark;
@@ -116,7 +147,9 @@
             }
 
             .request-form__client {
+                position: relative;
                 @include input();
+                @include select();
             }
 
             .request-form__priority {
@@ -124,7 +157,9 @@
             }
 
             .request-form__area {
+                position: relative;
                 @include input();
+                @include select();
             }
 
             .request-form__date {
@@ -166,6 +201,7 @@
                     margin-top: 4px;
                     height: 150px;
                     width: 390px;
+                    font-size: 15px;
 
                     &::placeholder {
                         font-style: italic;

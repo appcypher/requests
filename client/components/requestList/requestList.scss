@@ -71,16 +71,17 @@ request-list {
     .request-list__content {
         margin: 20px 0 10px 0;
         height: 100%;
-        width: auto;
         overflow-y: scroll;
+        // width: 100%;
+        display: flex;
+        justify-content: center;
 
         .request-list__days {
             height: 100%;
-            width: auto;
+            width: 90%;
 
             li.request-list__day {
                 margin-bottom: 30px;
-                width: auto;
 
                 .request-list__date-bar {
                     display: flex;
@@ -137,7 +138,7 @@ request-list {
                             box-shadow: 2px 0 2px 0 rgba(0, 0, 0, 0.2);
                         }
 
-                        &.checked {
+                        &.resolved {
                             .request-list__completed-icon svg path {
                                 fill: $primary-highlight;
                             }
@@ -154,13 +155,13 @@ request-list {
                         }
 
                         .request-list__description {
-                            // font-size: 18px;
                             margin-left: 15px;
                             white-space: nowrap;
                             width: 10px;
+                            flex: 1 1 auto;
+                            width: auto;
                             overflow: hidden;
                             text-overflow: ellipsis;
-                            flex: 1 1 auto;
                             text-align: center;
                         }
 
@@ -180,6 +181,8 @@ request-list {
 
                         .request-list__time {
                             margin-left: 15px;
+                            width: 50px;
+                            text-align: center;
                         }
 
                         .request-list__client-avatar {

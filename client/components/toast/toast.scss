@@ -1,0 +1,24 @@
+@import "../../assets/scss/common.scss";
+
+.toast {
+    min-width: 200px;
+    max-width: 400px;
+    height: auto;
+    width: auto;
+    background-color: $dark-highlight;
+    border-radius: 5px;
+    color: $text-gray;
+    position: absolute;
+    left: 0;
+    bottom: 20px;
+    box-shadow: 1px 0 2px 2px rgba(0, 0, 0, .3);
+    font-size: 18px;
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-transform: capitalize;
+
+    @include hide();
+}
+

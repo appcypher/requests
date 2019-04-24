@@ -2,165 +2,37 @@
 <div class="request-list__top-bar">
     <div class="request-list__requests-strip">REQUESTS</div>
     <div class="request-list__search-bar">
-        <div class="request-list__search-icon" data-bind="html: search"></div>
+        <div class="request-list__search-icon" data-bind="html: searchIcon"></div>
         <div class="request-list__search-bar-input-container">
             <input type="text" placeholder="Search" />
         </div>
     </div>
 </div>
-
 <!-- List content -->
 <div class="request-list__content">
-    <ul class="request-list__days">
-        <li class="request-list__day">
+    <ul class="request-list__days" data-bind="foreach: requestsByDays">
+        <li id="list_1" class="request-list__day">
             <div class="request-list__date-bar">
-                <div class="request-list__dropdown-icon" data-bind="html: dropdown"></div>
-                <div class="request-list__date">Today</div>
-                <div class="request-list__count">(13)</div>
+                <div class="request-list__dropdown-icon" data-bind="html: $parent.dropdownIcon"></div>
+                <div class="request-list__date" data-bind="text: $parent.formatDate(date)">Hello</div>
+                <div class="request-list__count" data-bind="text: `(${requests.length})`"></div>
             </div>
-            <ul class="request-list__entries">
-                <li class="request-list__entry">
-                    <div class="request-list__completed-icon" data-bind="html: check"></div>
-                    <div class="request-list__issue-number">#20</div>
-                    <div class="request-list__description">Request for a feature that makes options visible so that</div>
-                    <div class="request-list__priority-label">1</div>
-                    <div class="request-list__time">15:00</div>
+            <ul class="request-list__entries" data-bind="foreach: requests">
+                <li class="request-list__entry" data-bind="css2: { resolved }, click: $parents[1].selectRequest">
+                    <div class="request-list__completed-icon" data-bind="html: $parents[1].checkIcon"></div>
+                    <div class="request-list__issue-number" data-bind="text: `#${id}`"></div>
+                    <div class="request-list__description" data-bind="text: title"></div>
+                    <div class="request-list__priority-label" data-bind="text: priority, style: { backgroundColor: $parents[1].getPriorityColor(priority) }"></div>
+                    <div class="request-list__time" data-bind="text: $parents[1].formatTime(created_at)"></div>
                     <div class="request-list__client-avatar">
-                        <img src="../../assets/icons/placeholder.png" alt="staff-avatar"/>
-                    </div>
-                </li>
-                <li class="request-list__entry checked">
-                    <div class="request-list__completed-icon" data-bind="html: check"></div>
-                    <div class="request-list__issue-number">#20</div>
-                    <div class="request-list__description">Request for a feature that makes options visible so that</div>
-                    <div class="request-list__priority-label">5</div>
-                    <div class="request-list__time">15:00</div>
-                    <div class="request-list__client-avatar">
-                        <img src="../../assets/icons/placeholder.png" alt="staff-avatar"/>
-                    </div>
-                </li>
-            </ul>
-        </li>
-        <li class="request-list__day">
-            <div class="request-list__date-bar">
-                <div class="request-list__dropdown-icon" data-bind="html: dropdown"></div>
-                <div class="request-list__date">Yesterday</div>
-                <div class="request-list__count">(13)</div>
-            </div>
-            <ul class="request-list__entries">
-                <li class="request-list__entry">
-                    <div class="request-list__completed-icon" data-bind="html: check"></div>
-                    <div class="request-list__issue-number">#20</div>
-                    <div class="request-list__description">Request for ------------===================-------- a feature that makes options visible so that</div>
-                    <div class="request-list__priority-label">1</div>
-                    <div class="request-list__time">15:00</div>
-                    <div class="request-list__client-avatar">
-                        <img src="../../assets/icons/placeholder.png" alt="staff-avatar"/>
-                    </div>
-                </li>
-                <li class="request-list__entry checked">
-                    <div class="request-list__completed-icon" data-bind="html: check"></div>
-                    <div class="request-list__issue-number">#20</div>
-                    <div class="request-list__description">Request for a feature that makes options visible so that</div>
-                    <div class="request-list__priority-label">5</div>
-                    <div class="request-list__time">15:00</div>
-                    <div class="request-list__client-avatar">
-                        <img src="../../assets/icons/placeholder.png" alt="staff-avatar"/>
-                    </div>
-                </li>
-            </ul>
-        </li>
-        <li class="request-list__day">
-            <div class="request-list__date-bar">
-                <div class="request-list__dropdown-icon" data-bind="html: dropdown"></div>
-                <div class="request-list__date">Yesterday</div>
-                <div class="request-list__count">(13)</div>
-            </div>
-            <ul class="request-list__entries">
-                <li class="request-list__entry">
-                    <div class="request-list__completed-icon" data-bind="html: check"></div>
-                    <div class="request-list__issue-number">#20</div>
-                    <div class="request-list__description">Request for a feature that makes options visible so that</div>
-                    <div class="request-list__priority-label">1</div>
-                    <div class="request-list__time">15:00</div>
-                    <div class="request-list__client-avatar">
-                        <img src="../../assets/icons/placeholder.png" alt="staff-avatar"/>
-                    </div>
-                </li>
-                <li class="request-list__entry checked">
-                    <div class="request-list__completed-icon" data-bind="html: check"></div>
-                    <div class="request-list__issue-number">#20</div>
-                    <div class="request-list__description">Request for a feature that makes options visible so that</div>
-                    <div class="request-list__priority-label">5</div>
-                    <div class="request-list__time">15:00</div>
-                    <div class="request-list__client-avatar">
-                        <img src="../../assets/icons/placeholder.png" alt="staff-avatar"/>
-                    </div>
-                </li>
-            </ul>
-        </li>
-        <li class="request-list__day">
-            <div class="request-list__date-bar">
-                <div class="request-list__dropdown-icon" data-bind="html: dropdown"></div>
-                <div class="request-list__date">Yesterday</div>
-                <div class="request-list__count">(13)</div>
-            </div>
-            <ul class="request-list__entries">
-                <li class="request-list__entry">
-                    <div class="request-list__completed-icon" data-bind="html: check"></div>
-                    <div class="request-list__issue-number">#20</div>
-                    <div class="request-list__description">Request for a feature that makes options visible so that</div>
-                    <div class="request-list__priority-label">1</div>
-                    <div class="request-list__time">15:00</div>
-                    <div class="request-list__client-avatar">
-                        <img src="../../assets/icons/placeholder.png" alt="staff-avatar"/>
-                    </div>
-                </li>
-                <li class="request-list__entry checked">
-                    <div class="request-list__completed-icon" data-bind="html: check"></div>
-                    <div class="request-list__issue-number">#20</div>
-                    <div class="request-list__description">Request for a feature that makes options visible so that</div>
-                    <div class="request-list__priority-label">5</div>
-                    <div class="request-list__time">15:00</div>
-                    <div class="request-list__client-avatar">
-                        <img src="../../assets/icons/placeholder.png" alt="staff-avatar"/>
-                    </div>
-                </li>
-            </ul>
-        </li>
-        <li class="request-list__day">
-            <div class="request-list__date-bar">
-                <div class="request-list__dropdown-icon" data-bind="html: dropdown"></div>
-                <div class="request-list__date">Yesterday</div>
-                <div class="request-list__count">(13)</div>
-            </div>
-            <ul class="request-list__entries">
-                <li class="request-list__entry">
-                    <div class="request-list__completed-icon" data-bind="html: check"></div>
-                    <div class="request-list__issue-number">#20</div>
-                    <div class="request-list__description">Request for a feature that makes options visible so that</div>
-                    <div class="request-list__priority-label">1</div>
-                    <div class="request-list__time">15:00</div>
-                    <div class="request-list__client-avatar">
-                        <img src="../../assets/icons/placeholder.png" alt="staff-avatar"/>
-                    </div>
-                </li>
-                <li class="request-list__entry checked">
-                    <div class="request-list__completed-icon" data-bind="html: check"></div>
-                    <div class="request-list__issue-number">#20</div>
-                    <div class="request-list__description">Request for a feature that makes options visible so that</div>
-                    <div class="request-list__priority-label">5</div>
-                    <div class="request-list__time">15:00</div>
-                    <div class="request-list__client-avatar">
-                        <img src="../../assets/icons/placeholder.png" alt="staff-avatar"/>
+                        <img alt="staff-avatar" data-bind="attr: { src: $parents[1].getAvatar(client.avatar_url) }"/>
                     </div>
                 </li>
             </ul>
         </li>
     </ul>
 </div>
-
 <!-- Add button -->
 <button class="request-list__add-button">
-    <div class="sidebar__icon" data-bind="html: plus"></div>
+    <div class="sidebar__icon" data-bind="html: plusIcon"></div>
 </button>

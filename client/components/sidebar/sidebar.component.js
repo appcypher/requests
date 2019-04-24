@@ -2,19 +2,19 @@ import ko from 'knockout';
 import $ from 'jquery';
 import template from './sidebar.html';
 import './sidebar.scss';
-import profile from '../../assets/icons/profile.svg';
-import message from '../../assets/icons/message.svg';
-import request from '../../assets/icons/request.svg';
-import calendar from '../../assets/icons/calendar.svg';
-import stats from '../../assets/icons/stats.svg';
+import profileIcon from '../../assets/icons/profile.svg';
+import messageIcon from '../../assets/icons/message.svg';
+import requestIcon from '../../assets/icons/request.svg';
+import calendarIcon from '../../assets/icons/calendar.svg';
+import statsIcon from '../../assets/icons/stats.svg';
 
 class ViewModel {
   constructor() {
-    this.profile = profile;
-    this.message = message;
-    this.request = request;
-    this.calendar = calendar;
-    this.stats = stats;
+    this.profileIcon = profileIcon;
+    this.messageIcon = messageIcon;
+    this.requestIcon = requestIcon;
+    this.calendarIcon = calendarIcon;
+    this.statsIcon = statsIcon;
   }
 
   // eslint-disable-next-line class-methods-use-this

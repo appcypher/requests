@@ -1,5 +1,6 @@
 // =============== INITIAL =============== //
 @import url('https://fonts.googleapis.com/css?family=Roboto:300,600,700');
+@import "../../assets/scss/common.scss";
 
 html, body, #app, app {
     height: 100%;
@@ -10,4 +11,18 @@ app {
     display: flex;
     font-family: 'Roboto', sans-serif;
     position: relative;
+}
+
+.popup-container {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, .5);
+
+    @include hide();
 }

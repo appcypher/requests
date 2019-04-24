@@ -1,6 +1,6 @@
 import ko from 'knockout';
 import './components';
-import setupEvents from './utilities/events';
+import setupEvents from './events';
 
 setupEvents();
 
