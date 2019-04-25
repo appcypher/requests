@@ -1,0 +1,11 @@
+branch-defaults:
+  master:
+    environment: null
+    group_suffix: null
+global:
+  branch: master
+  profile: null
+  repository: null
+staging:
+  environment: master
+  group_suffix: null

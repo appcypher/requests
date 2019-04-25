@@ -140,6 +140,14 @@ This project contains aws config files and scripts for automating deployment. Th
 ##### STEPS
 - For the following to work, you need to have [configured](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-configure.html) your AWS CLI using your EC2 [keypairs](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html).
 
+##### ---
+$ mkdir HelloWorld
+$ cd HelloWorld
+$ eb init -p PHP
+$ echo "Hello World" > index.html
+$ eb create dev-env
+$ eb open
+
 
 
 

@@ -4,8 +4,9 @@ services:
     restart: always
     image: postgres:11.2
     environment:
-      - POSTGRES_USER=postgres
       - POSTGRES_DB=requests
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=
     ports:
       - '5432:5432'
     expose:

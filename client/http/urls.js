@@ -1,4 +1,4 @@
-let baseUrl = 'https://xxx';
+let baseUrl = 'http://localhost:5000/api/v1';
 
 if (process.env.NODE_ENV && process.env.NODE_ENV === 'development') {
   baseUrl = 'http://localhost:5000/api/v1';

@@ -58,8 +58,9 @@ class ViewModel {
         this.requests(response.data.data);
       })
       .catch((error) => {
+        console.log('======>', error);
         hideLoader();
-        showError(error.response.data.message);
+        // showError(error.response.data.message);
       });
   }
 

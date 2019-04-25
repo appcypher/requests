@@ -3,7 +3,7 @@ node_modules
 **/__pycache__
 **/dist/*
 .env
-!client/dist/brand.png
+!client/dist/brand*
 htmlcov/
 **/.DS_Store
 .pytest_cache/

@@ -9,7 +9,7 @@
             "environment": [
                 {
                     "name": "POSTGRES_USER",
-                    "value": "postgres"
+                    "value": "root"
                 },
                 {
                     "name": "POSTGRES_DB",
@@ -30,7 +30,7 @@
             ]
         },
         {
-            "image": "appcypher/requests-app",
+            "image": "appcypher/requests_app",
             "name": "app",
             "essential": true,
             "memory": 300,
@@ -52,7 +52,7 @@
             ]
         },
         {
-            "image": "appcypher/requests-server",
+            "image": "appcypher/requests_server",
             "name": "server",
             "essential": true,
             "memory": 128,

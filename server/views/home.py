@@ -16,4 +16,4 @@ def serve_files(path):
     Args:
         path (str): resource path.
     """
-    return send_from_directory('../client/dist', path)
+    return send_from_directory('../client', path)
