@@ -1,4 +1,4 @@
-![Requests](media/requests-page-mockup.png)
+![Requests](media/requests-mockup.png)
 
 <h1 align="center">REQUESTS</h1>
 
@@ -12,7 +12,7 @@ You can find the mockups [here](https://www.figma.com/file/CEAsuJTXG1nRShKSMkLdR
 
 Requests is part of a larger application. It allows the staff of an imaginary company to register and track client's feature requests.
 
-See Requests running [here](...)
+See Requests running [here](http://requests2-env.ytcuuufw3p.us-east-2.elasticbeanstalk.com/)
 
 
 
@@ -128,9 +128,9 @@ See Requests running [here](...)
 
 
 ### 🚀 DEPLOYMENT TO [AWS ECS](https://aws.amazon.com/ecs/)
-This project contains aws config files and scripts for automating deployment. The deployment process relies on the following AWS automation services:
-- CodePipeline ...
-- CodeBuild ...
+This project contains a buildspec.yml file for automating deployment. The deployment process relies on a few AWS automation services CodePipeline, CodeBuild. Ideally the buildspec file needs to be customized for your use case.
+
+However, if you are willing to take the manual approach, you can follow the steps below.
 
 ##### REQUIREMENTS
 - [AWS](https://aws.amazon.com) - Amazon web services
@@ -140,14 +140,20 @@ This project contains aws config files and scripts for automating deployment. Th
 ##### STEPS
 - For the following to work, you need to have [configured](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-configure.html) your AWS CLI using your EC2 [keypairs](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html).
 
-##### ---
-$ mkdir HelloWorld
-$ cd HelloWorld
-$ eb init -p PHP
-$ echo "Hello World" > index.html
-$ eb create dev-env
-$ eb open
+- Initialize the platform by following the prompt given by
+    ```bash
+    eb init
+    ```
 
+- Create an environement.
+    ```
+    eb create request_app_environment
+    ```
+
+- Deploy the application.
+    ```bash
+    eb deploy
+    ```
 
 
 
