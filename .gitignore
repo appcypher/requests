@@ -8,3 +8,8 @@ htmlcov/
 **/.DS_Store
 .pytest_cache/
 docker/database
+
+# Elastic Beanstalk Files
+.elasticbeanstalk/*
+!.elasticbeanstalk/*.cfg.yml
+!.elasticbeanstalk/*.global.yml

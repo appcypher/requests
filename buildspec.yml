@@ -1,9 +1,15 @@
 version: 0.2
+
+env:
+  parameter-store:
+    LOGIN_PASSWORD: dockerLoginPassword
+
 phases:
   pre_build:
     commands:
       - "echo \"[requests]: pre-build\""
-      - $(aws ecr get-login --no-include-email --region $AWS_DEFAULT_REGION)
+      - docker login –u appcypher –p $LOGIN_PASSWORD
+
   build:
     commands:
     - "echo \"[requests]: build\""

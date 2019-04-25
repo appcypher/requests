@@ -1,11 +1,23 @@
 branch-defaults:
   master:
-    environment: null
+    environment: Requests-env
     group_suffix: null
+environment-defaults:
+  Requests-env:
+    branch: null
+    repository: null
 global:
+  application_name: requests
   branch: master
+  default_ec2_keyname: null
+  default_platform: arn:aws:elasticbeanstalk:us-east-2::platform/Multi-container Docker
+    running on 64bit Amazon Linux/2.12.0
+  default_region: us-east-2
+  include_git_submodules: true
+  instance_profile: null
+  platform_name: null
+  platform_version: null
   profile: null
   repository: null
-staging:
-  environment: master
-  group_suffix: null
+  sc: git
+  workspace_type: Application
