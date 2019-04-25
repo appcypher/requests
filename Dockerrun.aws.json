@@ -9,7 +9,7 @@
             "environment": [
                 {
                     "name": "POSTGRES_USER",
-                    "value": "root"
+                    "value": "postgres"
                 },
                 {
                     "name": "POSTGRES_DB",
@@ -36,6 +36,10 @@
             "memory": 300,
             "user": "root",
             "environment": [
+                {
+                    "name": "SQLALCHEMY_DATABASE_URI",
+                    "value": "postgresql://postgres@database/requests"
+                },
                 {
                     "name": "POSTGRES_HOST",
                     "value": "database"
@@ -71,7 +75,7 @@
     "volumes": [
         {
             "host": {
-                "sourcePath": "./database"
+                "sourcePath": "database"
             },
             "name": "_Database"
         }

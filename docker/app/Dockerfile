@@ -7,7 +7,6 @@ LABEL maintainer='Steve Akinyemi <steveakinyemi@gmail.com>'
 # The following lines are needed to prevent pipenv from throwing unknown-locale error
 ENV LC_ALL=C.UTF-8
 ENV LANG=C.UTF-8
-ENV SQLALCHEMY_DATABASE_URI=postgresql://database/requests
 ENV FLASK_APP=server/app.py
 
 # Create working directory

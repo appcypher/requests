@@ -8,3 +8,4 @@ htmlcov/
 .coverage
 **/.DS_Store
 .pytest_cache
+app.zip
