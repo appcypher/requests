@@ -33,8 +33,8 @@ def test_seed_staff_saves_staffs_to_db(initialize_db):
     staff = Staff.get_all()
 
     assert staff[0].username == 'Steve Akinyemi'
-    assert staff[1].username == 'James Waldo'
-    assert staff[2].username == 'Anu Johnson'
+    assert staff[1].username == 'Anu Johnson'
+    assert staff[2].username == 'James Waldo'
     assert len(staff) == 3
 
 
@@ -52,9 +52,8 @@ def test_seed_comment_saves_comments_to_db(multiple_valid_request_models):
 
     assert comments[0].message == 'I will be working on this soon'
     assert comments[1].message == 'I think we should wait for confirmation'
-    assert comments[2].message == 'You are right. Let\'s do that'
-    assert comments[3].message == 'How long will the Paypal support take?'
-    assert len(comments) == 5
+    assert comments[2].message == 'How long will the Paypal support take?'
+    assert len(comments) == 14
 
 
 def test_seed_request_saves_requests_to_db(
@@ -73,7 +72,15 @@ def test_seed_request_saves_requests_to_db(
 
     requests = Request.get_all()
 
-    assert requests[0].title == 'Improve customer care services'
-    assert requests[1].title == 'Add PayPal payment support'
-    assert requests[2].title == 'Add option for clearing transactions'
-    assert len(requests) == 3
+    assert requests[0].title == (
+        'Add option for clearing transactions or archiving them'
+        ' transactions'
+    )
+    assert requests[1].title == (
+        'Improve customer care services to reduce client churn'
+    )
+    assert requests[2].title == (
+        'Fix issue with the customisation section. It hangs'
+        ' sometimes and breaks immersion'
+    )
+    assert len(requests) == 12

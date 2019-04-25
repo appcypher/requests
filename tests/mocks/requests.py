@@ -69,30 +69,10 @@ def multiple_valid_request_models(
             'being rather unpleasant.',
             product_area=ProductArea.POLICIES,
             target_date=datetime.utcnow(),
-            priority=1,
+            priority=i,
             staff_id=1,
             client_id=1,
-        ).save(),
-        Request(
-            title='Add PayPal payment support',
-            description='Client B wants to be able to purchase '
-            'using his PayPal ',
-            product_area=ProductArea.BILLING,
-            target_date=datetime.utcnow(),
-            priority=1,
-            staff_id=2,
-            client_id=2,
-        ).save(),
-        Request(
-            title='Add option for clearing transactions',
-            description='Client B wants to be able to clear old '
-            'transaction list to reduce UI clutter',
-            product_area=ProductArea.CLAIMS,
-            target_date=datetime.utcnow(),
-            priority=2,
-            staff_id=2,
-            client_id=3,
-        ).save(),
+        ).save() for i in range(12)
     ]
 
     return requests

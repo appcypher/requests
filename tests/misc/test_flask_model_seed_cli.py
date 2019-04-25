@@ -26,8 +26,8 @@ def test_flask_seed_model_cli_seeds_to_db_with_all_option(cli_app):
 
     assert len(clients) == 3
     assert len(staff) == 3
-    assert len(comments) == 5
-    assert len(requests) == 3
+    assert len(comments) == 14
+    assert len(requests) == 12
     assert result.exit_code == 0
 
 
@@ -92,7 +92,7 @@ def test_flask_seed_model_cli_seeds_to_db_with_comment_option(
 
     comments = Comment.get_all()
 
-    assert len(comments) == 5
+    assert len(comments) == 14
     assert result.exit_code == 0
 
 
@@ -115,5 +115,5 @@ def test_flask_seed_model_cli_seeds_to_db_with_request_option(
 
     requests = Request.get_all()
 
-    assert len(requests) == 3
+    assert len(requests) == 12
     assert result.exit_code == 0

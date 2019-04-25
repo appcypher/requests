@@ -26,7 +26,7 @@ def test_get_file_succeeds_with_valid_resource_path(client, request_headers):
     """
 
     res = client.get(
-        f'{base_url}/bundle.min.js',
+        f'{base_url}/dist/bundle.min.js',
         headers=request_headers,
         follow_redirects=True
     )
