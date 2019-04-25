@@ -9,9 +9,30 @@ def seed_staff():
     """
     # Create seeds for staff.
     staff = [
-        Staff(id=1, username='Steve Akinyemi', avatar_url=''),
-        Staff(id=2, username='James Waldo', avatar_url=''),
-        Staff(id=3, username='Anu Johnson', avatar_url=''),
+        Staff(
+            id=1,
+            username='Steve Akinyemi',
+            avatar_url=(
+                'https://github.com/appcypher/experiments/blob/master/images/'
+                'staff-1.jpg?raw=true'
+            )
+        ),
+        Staff(
+            id=2,
+            username='Anu Johnson',
+            avatar_url=(
+                'https://github.com/appcypher/experiments/blob/master/images/'
+                'staff-2.jpg?raw=true'
+            )
+        ),
+        Staff(
+            id=3,
+            username='James Waldo',
+            avatar_url=(
+                'https://github.com/appcypher/experiments/blob/master/images/'
+                'staff-3.jpg?raw=true'
+            )
+        ),
     ]
 
     # Save to the database.
