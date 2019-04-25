@@ -57,6 +57,7 @@ request-details {
         display: flex;
         flex-direction: column;
         overflow-y: scroll;
+        min-width: 232px;
 
         .request-details__title-container {
             display: flex;
@@ -163,7 +164,6 @@ request-details {
         .request-details__description-container {
             margin: 0 4%;
             margin-top: 30px;
-            min-width: 232px;
 
             .request-details__description-top-bar {
                 display: flex;

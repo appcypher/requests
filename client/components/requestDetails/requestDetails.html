@@ -53,7 +53,7 @@
                         <img alt="staff-avatar" data-bind="attr: { src: $parent.getAvatar(staff.avatar_url) }" />
                     </div>
                     <div class="request-details_sender-date-container">
-                        <div class="request-details__sender">Steve</div>
+                        <div class="request-details__sender" data-bind="text: staff.username"></div>
                         <div class="request-details__comment-date-container">
                             <div class="request-details__comment-date" data-bind="text: $parent.formatDate(created_at)"></div>
                             <div class="request-details__comment-time" data-bind="text: `| ${$parent.formatTime(created_at)}`"></div>
