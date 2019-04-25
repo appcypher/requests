@@ -1,6 +1,6 @@
 version: 0.2
 phases:
-  pre-build:
+  pre_build:
     commands:
       - "echo \"[requests]: pre-build\""
       - $(aws ecr get-login --no-include-email --region $AWS_DEFAULT_REGION)
@@ -10,7 +10,7 @@ phases:
     - docker-compose -f docker/compose.yml up
     - docker-compose -f docker/compose.yml down
 
-  post-build:
+  post_build:
     commands:
       - "echo \"[requests]: post-build\""
       - docker tag docker_app appcypher/requests_app:latest
