@@ -1,4 +1,4 @@
-let baseUrl = 'http://requests2-env.ytcuuufw3p.us-east-2.elasticbeanstalk.com';
+let baseUrl = 'http://requests2-env.ytcuuufw3p.us-east-2.elasticbeanstalk.com/api/v1';
 
 if (process.env.NODE_ENV && process.env.NODE_ENV === 'development') {
   baseUrl = 'http://localhost:5000/api/v1';
