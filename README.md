@@ -10,7 +10,7 @@ You can find the mockups [here](https://www.figma.com/file/CEAsuJTXG1nRShKSMkLdR
 [![Maintainability](https://api.codeclimate.com/v1/badges/dda736c170b430d64dc7/maintainability)](https://codeclimate.com/github/appcypher/requests/maintainability)
 ![Maintained](https://img.shields.io/maintenance/yes/2019.svg)
 
-Requests is part of a larger application. It allows the staff of an imaginary company to register and track client's feature requests.
+Requests is part of a larger application. It allows the staff of an imaginary company to register and track clients feature requests.
 
 See Requests running [here](http://requests2-env.ytcuuufw3p.us-east-2.elasticbeanstalk.com/)
 
@@ -62,6 +62,9 @@ See Requests running [here](http://requests2-env.ytcuuufw3p.us-east-2.elasticbea
     ```bash
     flask run
     ```
+
+- Visit `localhost:5000` on your browser to see the page.
+
 
 ### ✅ TESTING
 ##### REQUIREMENTS
@@ -161,7 +164,7 @@ However, if you are willing to take the manual approach, you can follow the step
 - ```flask model seed all``` → Seeds the database with relevant initial data
 - ```npm run build:dev:watch``` → Builds the frontend code with optimizations turned on and generates a sourcemap
 - ```npm run build:dev:watch``` → Watches the frontend code for any change and rebuilds with debug options enabled
-- ```sh requests.sh --help``` → Shows helpful information about `request.sh` script
+- ```sh requests.sh --help``` → Shows helpful information about `requests.sh` script
 - ```sh requests.sh build``` → Downloads and builds the projects dependencies
 - ```sh requests.sh start``` → Starts the flask application using a Gunicorn (wsgi) server
 
