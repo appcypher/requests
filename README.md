@@ -1,6 +1,6 @@
-![Requests](media/requests-mockup.png)
-
 <h1 align="center">REQUESTS</h1>
+
+![Requests](media/requests-mockup.png)
 
 You can find the mockups [here](https://www.figma.com/file/CEAsuJTXG1nRShKSMkLdRW4U/Untitled?node-id=0%3A1)
 
