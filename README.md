@@ -10,7 +10,7 @@ You can find the mockups [here](https://www.figma.com/file/CEAsuJTXG1nRShKSMkLdR
 [![Maintainability](https://api.codeclimate.com/v1/badges/dda736c170b430d64dc7/maintainability)](https://codeclimate.com/github/appcypher/requests/maintainability)
 ![Maintained](https://img.shields.io/maintenance/yes/2019.svg)
 
-Requests is part of a larger application. It allows the staff of an imaginary company to register and track clients feature requests.
+Requests is part of a larger application. It allows the staff of an imaginary company to register and track clients' feature requests.
 
 See Requests running [here](http://requests2-env.ytcuuufw3p.us-east-2.elasticbeanstalk.com/)
 
@@ -73,18 +73,14 @@ See Requests running [here](http://requests2-env.ytcuuufw3p.us-east-2.elasticbea
 ##### STEPS
 - You can run all the tests in a single command.
     ```bash
-    pipenv shell
-    ```
-
-    ```bash
-    pytest
+    pipenv run pytest
     ```
 
     Some useful defaults are already set in [pytest.ini file](pytest.ini)
 
 - The tests are all unit tests, so you can run them individually
     ```bash
-    pytest -k test_client_model_gets_all_rows_correctly_after_saving
+    pipenv run pytest -k test_client_model_gets_all_rows_correctly_after_saving
     ```
 
 
@@ -131,9 +127,7 @@ See Requests running [here](http://requests2-env.ytcuuufw3p.us-east-2.elasticbea
 
 
 ### 🚀 DEPLOYMENT TO [AWS ECS](https://aws.amazon.com/ecs/)
-This project contains a buildspec.yml file for automating deployment. The deployment process relies on a few AWS automation services CodePipeline, CodeBuild. Ideally the buildspec file needs to be customized for your use case.
-
-However, if you are willing to take the manual approach, you can follow the steps below.
+This project contains a buildspec.yml file for automating deployment. The deployment process relies on a few AWS automation services like CodePipeline and CodeBuild. Ideally the buildspec file needs to be customized for your use case. However, if you are willing to take the manual approach, you can follow the steps below.
 
 ##### REQUIREMENTS
 - [AWS](https://aws.amazon.com) - Amazon web services
@@ -175,7 +169,7 @@ However, if you are willing to take the manual approach, you can follow the step
 ### ↔️ API
 - A detailed documentation of the API is available [here](https://documenter.getpostman.com/view/4928310/S1EQSHJX).
 
-- You can also have access to the project's Postman collection with the button below.
+- The project's Postman collection can be accessed with the button below.
 
     [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/84067ae32777b6dea8ef)
 
@@ -221,11 +215,11 @@ However, if you are willing to take the manual approach, you can follow the step
 
 ##### CI/CD
 - ```Docker``` → Container and image creation and management tool
-- ```Travis``` → Continous integration services
+- ```CircleCI``` → Continous integration services
 - ```CodeClimate``` → Code maintenance and coverage services
 - ```Coveralls``` → Code coverage report services
-- ```Amazon ECS``` → Amazon's container orchestration services
-- ```Amazon CodePipeline, CodeBuild, CodeDeploy, CodeCommit``` → A set of AWS automation services for CI/CD
+- ```Amazon ECS & Elastic Beanstalk``` → Amazon's container orchestration services
+- ```Amazon CodePipeline, CodeBuild, CodeCommit``` → A set of AWS automation services for CI/CD
 
 ##### TESTS
 - ```Pytest``` → Testing framework
