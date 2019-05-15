@@ -8,13 +8,24 @@
         </div>
     </div>
 </div>
+
+<!-- Toggle -->
+<div class="request-list__toggle-container">
+    <div class="request-list__toggle-text">sort by</div>
+    <div class="request-list__toggle" data-bind="click: toggleSortType">
+        <div class="request-list__toggle-handle">priority</div>
+        &nbsp;&nbsp;&nbsp; priority &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; date &nbsp;
+    </div>
+</div>
+
 <!-- List content -->
 <div class="request-list__content">
-    <ul class="request-list__days" data-bind="foreach: requestsByDays">
+    <!-- ko ifnot: groupedByClient -->
+    <ul class="request-list__days" data-bind="foreach: requestsGroupedByDate">
         <li id="list_1" class="request-list__day">
-            <div class="request-list__date-bar">
+            <div class="request-list__header-bar">
                 <div class="request-list__dropdown-icon" data-bind="html: $parent.dropdownIcon"></div>
-                <div class="request-list__date" data-bind="text: $parent.formatDate(date)">Hello</div>
+                <div class="request-list__header-main" data-bind="text: $parent.formatDate(date)"></div>
                 <div class="request-list__count" data-bind="text: `(${requests.length})`"></div>
             </div>
             <ul class="request-list__entries" data-bind="foreach: requests">
@@ -22,7 +33,7 @@
                     <div class="request-list__completed-icon" data-bind="html: $parents[1].checkIcon"></div>
                     <div class="request-list__issue-number" data-bind="text: `#${id}`"></div>
                     <div class="request-list__description" data-bind="text: title"></div>
-                    <div class="request-list__priority-label" data-bind="text: priority, style: { backgroundColor: $parents[1].getPriorityColor(priority) }"></div>
+                    <div class="request-list__priority-label" data-bind="text: priority, style: { backgroundColor: $parents[1].getPriorityColor(priority) }">10</div>
                     <div class="request-list__time" data-bind="text: $parents[1].formatTime(created_at)"></div>
                     <div class="request-list__client-avatar">
                         <img alt="staff-avatar" data-bind="attr: { src: $parents[1].getAvatar(client.avatar_url) }"/>
@@ -31,6 +42,32 @@
             </ul>
         </li>
     </ul>
+    <!-- /ko -->
+
+    <!-- ko if: groupedByClient -->
+    <ul class="request-list__days" data-bind="foreach: requestsGroupedByClient">
+        <li id="list_1" class="request-list__day">
+            <div class="request-list__header-bar">
+                <div class="request-list__dropdown-icon" data-bind="html: $parent.dropdownIcon"></div>
+                <div class="request-list__header-main" data-bind="text: client"></div>
+                <div class="request-list__count" data-bind="text: `(${requests.length})`"></div>
+            </div>
+            <ul class="request-list__entries" data-bind="foreach: requests">
+                <li class="request-list__entry" data-bind="css2: { resolved }, click: $parents[1].selectRequest">
+                    <div class="request-list__completed-icon" data-bind="html: $parents[1].checkIcon"></div>
+                    <div class="request-list__issue-number" data-bind="text: `#${id}`"></div>
+                    <div class="request-list__description" data-bind="text: title"></div>
+                    <div class="request-list__priority-label" data-bind="text: priority, style: { backgroundColor: $parents[1].getPriorityColor(priority) }">10</div>
+                    <div class="request-list__time" data-bind="text: $parents[1].formatTime(created_at)"></div>
+                    <div class="request-list__client-avatar">
+                        <img alt="staff-avatar" data-bind="attr: { src: $parents[1].getAvatar(client.avatar_url) }"/>
+                    </div>
+                </li>
+            </ul>
+        </li>
+    </ul>
+    <!-- /ko -->
+
 </div>
 <!-- Add button -->
 <button class="request-list__add-button">

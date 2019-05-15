@@ -41,10 +41,12 @@ class ViewModel {
         avatar_url: '',
       },
     });
+
     this.newRequestDetails = ko.observable({
       id: 0,
       message: '',
     }).syncWith('newRequestDetails');
+
     this.message = ko.observable('');
 
     ko.computed(() => {

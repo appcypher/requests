@@ -19,12 +19,6 @@ const setupEvents = () => {
     sideStripSlide();
 
     new DropdownAnimations(
-      '.request-list__dropdown-icon',
-      '.request-list__day',
-      '.request-list__entries',
-    ).registerAnimations();
-
-    new DropdownAnimations(
       '.request-details__description-top-bar > .request-details__dropdown-icon',
       '.request-details__description-container',
       '.request-details__description-text',

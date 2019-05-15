@@ -1,17 +1,17 @@
 import ko from 'knockout';
 import 'knockout-postbox';
-import moment from 'moment';
 import template from './requestList.html';
 import './requestList.scss';
 import searchIcon from '../../assets/icons/search.svg';
 import dropdownIcon from '../../assets/icons/dropdown.svg';
 import checkIcon from '../../assets/icons/check.svg';
 import plusIcon from '../../assets/icons/plus.svg';
-import { getRequests, getRequest } from '../../http';
+import { getRequests } from '../../http';
 import {
-  showError, showLoader, hideLoader, getPriorityColor,
+  showLoader, hideLoader, getPriorityColor,
   formatDate, formatTime,
 } from '../app/app.component';
+import { sortToggleSlide, DropdownAnimations } from '../../events/animations';
 import avatarUrl from '../../assets/icons/placeholder.png';
 
 class ViewModel {
@@ -24,21 +24,21 @@ class ViewModel {
 
     // Observables
     this.requests = ko.observableArray([]);
-    this.requestsByDays = ko.observableArray([]);
+    this.requestsGroupedByClient = ko.observableArray([]);
+    this.requestsGroupedByDate = ko.observableArray([]);
+    this.groupedByClient = ko.observable(true);
     this.newRequestDetails = ko.observable().publishOn('newRequestDetails');
     this.newRequestList = ko.observable().subscribeTo('newRequestList');
 
+    // Gets and sort the requests first.
     ko.computed({
       owner: this,
       read: () => {
-        const requests = ViewModel.groupRequests(this.requests);
-        this.requestsByDays(requests);
-        if (requests.length > 0) {
-          this.selectRequest(requests[0].requests[0]);
-        }
+        this.sortRequests();
       },
     });
 
+    // React to changes on requests.
     ko.computed(() => {
       this.newRequestList();
       this.getRequests();
@@ -58,12 +58,11 @@ class ViewModel {
         this.requests(response.data.data);
       })
       .catch((error) => {
-        console.log('======>', error);
         hideLoader();
-        // showError(error.response.data.message);
       });
   }
 
+  // Gets priority color.
   getPriorityColor = priority => getPriorityColor(priority)
 
   // Selects a request on the list an opens the details.
@@ -71,37 +70,98 @@ class ViewModel {
     this.newRequestDetails({ id, message: '' });
   }
 
-  // Groups and sorts by date.
-  static groupRequests = (requests) => {
-    // First group requests into dates.
-    const requestsByDay = requests().reduce((groupedRequests, request) => {
-      const date = request.created_at.slice(0, 10);
-      if (!groupedRequests[date]) {
-        // eslint-disable-next-line no-param-reassign
-        groupedRequests[date] = { date: request.created_at, requests: [request] };
-      } else {
-        groupedRequests[date].requests.push(request);
+  // Toggles sort type.
+  toggleSortType = () => {
+    // Toggle value
+    this.groupedByClient(!this.groupedByClient());
+
+    // Animate toggle.
+    sortToggleSlide(this.groupedByClient());
+
+    // Resort request list.
+    this.sortRequests();
+  }
+
+  // Groups and sorts requests based on sort toggle.
+  sortRequests = () => {
+    // Group requests.
+    if (this.groupedByClient()) {
+      this.requestsGroupedByClient(ViewModel.groupRequests(
+        this.requests,
+        request => request.client.username,
+        'client',
+        (a, b) => (a.priority > b.priority ? 1 : -1),
+      ));
+
+      if (this.requestsGroupedByClient().length > 0 && this.requestsGroupedByDate().length < 1) {
+        this.selectRequest(this.requestsGroupedByClient()[0].requests[0]);
       }
-      return groupedRequests;
+    } else {
+      this.requestsGroupedByDate(ViewModel.groupRequests(
+        this.requests,
+        request => request.created_at.slice(0, 10),
+        'date',
+        (a, b) => new Date(a.created_at).getTime() - new Date(b.created_at).getTime(),
+        true,
+      ));
+    }
+
+    // Register dropdown animation.
+    new DropdownAnimations(
+      '.request-list__dropdown-icon',
+      '.request-list__day',
+      '.request-list__entries',
+    ).registerAnimations();
+  }
+
+  // Groups requests and sorts each subgroup by some criteria.
+  static groupRequests = (requests, getKey, keyName, comparator, reverse = false) => {
+    // First group requests into dates.
+    const groupedRequests = requests().reduce((newRequests, request) => {
+      const keyValue = getKey(request);
+      if (!newRequests[keyValue]) {
+        // eslint-disable-next-line no-param-reassign
+        newRequests[keyValue] = { [keyName]: keyValue, requests: [request] };
+      } else {
+        newRequests[keyValue].requests.push(request);
+      }
+      return newRequests;
     }, {});
 
-    // Sort chronologically.
+    // Results of requests with ordered subgroup
     const orderedRequests = [];
-    Object.keys(requestsByDay).sort().reverse().forEach((key) => {
-      // Sort entry by date.
-      const { date, requests: oldRequests } = requestsByDay[key];
-      const sortedRequests = oldRequests.sort(
-        (a, b) => new Date(a.created_at).getTime() - new Date(b.created_at).getTime(),
-      ).reverse();
+    let keys;
 
+    // Get keys of grouped requests. Reverse if specified.
+    if (reverse) {
+      keys = Object.keys(groupedRequests).sort().reverse();
+    } else {
+      keys = Object.keys(groupedRequests).sort();
+    }
+
+    // Iterate over each key and sort subgroup.
+    keys.forEach((key) => {
+      const oldRequests = groupedRequests[key].requests;
+      const keyValue = groupedRequests[key][keyName];
+
+      // Sort entry by comparator.
+      let sortedRequests = oldRequests.sort(comparator);
+
+      // Reverse subgroup if specified.
+      if (reverse) {
+        sortedRequests = sortedRequests.reverse();
+      }
+
+      // Push values to new array.
       orderedRequests.push({
-        date,
+        [keyName]: keyValue,
         requests: sortedRequests,
       });
     });
 
     return orderedRequests;
   }
+
 
   // Formats date string.
   formatDate = date => formatDate(date)

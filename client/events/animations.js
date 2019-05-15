@@ -35,11 +35,13 @@ const requestListDropdownAnimate = ({ trigger, toggle, target }, orientation = 9
 
 // Slides the toast in and out.
 const toastSlide = () => {
+  const toastElement = $('toast');
   const toast = $('.toast');
   const loader = $('.loader');
   const container = $('.popup-container');
 
   loader.hide();
+  toastElement.css('display', 'flex');
   toast.css('display', 'flex');
   container.css('display', 'flex');
 
@@ -55,6 +57,22 @@ const toastSlide = () => {
       toast.hide();
     }, 500);
   }, 2000);
+};
+
+
+// Sort toggle slide animation
+const sortToggleSlide = (toggleSortByPriority) => {
+  const sortToggle = $('.request-list__toggle-handle');
+
+  if (toggleSortByPriority) {
+    sortToggle.css({ left: '60px' });
+    sortToggle.text('priority');
+    sortToggle.animate({ left: '0px' }, { duration: 200 });
+  } else {
+    sortToggle.css({ left: '0px' });
+    sortToggle.text('date');
+    sortToggle.animate({ left: '60px' }, { duration: 200 });
+  }
 };
 
 // Shows the request form when add button is clicked
@@ -147,5 +165,6 @@ export {
   requestFormShowHide,
   sideStripSlide,
   toastSlide,
+  sortToggleSlide,
   suggestionBoxEvents,
 };

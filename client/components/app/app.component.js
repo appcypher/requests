@@ -23,6 +23,7 @@ const showOK = (message) => {
 
 const showLoader = () => {
   $('.popup-container').css({ display: 'flex' });
+  $('toast').hide();
   $('.loader').show();
 };
 
@@ -54,6 +55,8 @@ const getPriorityColor = (priority) => {
 
   return color;
 };
+
+// const getPriorityColor = priority => (`lighten(#00FF84, ${priority}%)`);
 
 const formatDate = (date) => {
   let dateString = moment(date).format('DD MMMM YYYY');

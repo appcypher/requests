@@ -1,5 +1,6 @@
 @import "../../assets/scss/common.scss";
 
+
 request-list {
     background-color: $dark;
     flex: 1 1 auto;
@@ -67,6 +68,52 @@ request-list {
         }
     }
 
+    .request-list__toggle-container {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        margin: 0 5%;
+        padding: 20px 50px 20px 50px;
+
+        .request-list__toggle-text {
+            color: $text-gray-low;
+            margin-right: 10px;
+            font-size: 15px;
+        }
+
+        .request-list__toggle {
+            display: flex;
+            align-items: center;
+            height: 20px;
+            width: 120px;
+            box-shadow: inset 0 0 5px 0 rgba(0, 0, 0, 0.5);
+            border-radius: 50px;
+            background-color: $dark-highlight;
+            font-size: 13.5px;
+            cursor: pointer;
+            color: rgba(255, 255, 255, .1);
+            position: relative;
+
+            .request-list__toggle-handle {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                height: 20px;
+                width: 60px;
+                border-radius: inherit;
+                background-color: $primary-highlight;
+                color: $dark-highlight;
+                font-size: 13.5px;
+                position: absolute;
+                left: 0px;
+
+                &:hover {
+                    transform: scale(1.05);
+                    background-color: darken($primary-highlight, 10%);
+                }
+            }
+        }
+    }
 
     .request-list__content {
         margin: 20px 0 10px 0;
@@ -82,7 +129,7 @@ request-list {
                 margin-bottom: 30px;
                 width: auto;
 
-                .request-list__date-bar {
+                .request-list__header-bar {
                     display: flex;
                     padding-bottom: 5px;
                     border-bottom: 1px $text-gray-low solid;
@@ -107,7 +154,7 @@ request-list {
                         }
                     }
 
-                    .request-list__date {
+                    .request-list__header-main {
                         display: flex;
                         align-items: center;
                         color: #fff;
@@ -166,7 +213,7 @@ request-list {
 
                         .request-list__priority-label {
                             font-size: 14px;
-                            color: #fff;
+                            color: #001100;
                             width: 10px;
                             height: 10px;
                             margin-left: 15px;
