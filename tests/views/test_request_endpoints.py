@@ -186,6 +186,32 @@ def test_post_requests_fails_with_invalid_enum_value_in_body(
     assert res.status_code == 400
 
 
+def test_post_requests_fails_with_invalid_priority_in_body(
+    invalid_request_body_with_invalid_priority, client, request_headers
+):
+    """
+    Tests that response shows failure when request body has invalid enum value.
+
+    Args:
+        invalid_request_body_with_invalid_enum_value (dict): a request body
+            with invalid enum value
+        client (FlaskClient): a test client created by a fixture.
+        request_headers (dict): a header created by a fixture.
+    """
+    res = client.post(
+        requests_url(),
+        headers=request_headers,
+        json=invalid_request_body_with_invalid_priority
+    )
+    response = res.get_json()
+
+    assert not response['success']
+    assert (
+        response['message'] == 'priority value must be between 0 and 100'
+    )
+    assert res.status_code == 400
+
+
 def test_post_requests_fails_with_bad_json_in_body(
     bad_request_json_string, client, request_headers
 ):

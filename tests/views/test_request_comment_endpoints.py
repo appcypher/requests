@@ -160,7 +160,5 @@ def test_post_request_comments_fails_with_bad_json_in_body(
     )
     response = res.get_json()
 
-    print('>>>>', res, response)
-
     assert not response['success']
     assert res.status_code == 400

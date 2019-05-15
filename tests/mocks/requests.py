@@ -244,6 +244,31 @@ def invalid_request_body_with_invalid_string_length(
 
 
 @fixture(scope='function')
+def invalid_request_body_with_invalid_priority(
+    valid_client_model, valid_staff_model
+):
+    """
+    A fixture for creating a request body with invalid priority.
+
+    Args:
+        valid_client_model (Model): a valid client model created by a fixture.
+        valid_staff_model (Model): a valid staff model created by a fixture.
+    """
+    return {
+        'title': 'Improve customer care services',
+        'description':
+            'The current customer care services are reported to '
+            'be abysmal with representatives dropping calls on customer or '
+            'being rather unpleasant.',
+        'product_area': 'POLICIES',
+        'target_date': '2019-10-05T00:00:00Z',
+        'priority': 100,
+        'staff_id': 1,
+        'client_id': 1,
+    }
+
+
+@fixture(scope='function')
 def bad_request_json_string(valid_client_model, valid_staff_model):
     """
     A fixture for creating a bad request body.
