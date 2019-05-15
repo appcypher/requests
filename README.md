@@ -162,7 +162,7 @@ However, if you are willing to take the manual approach, you can follow the step
 
 ### ⚙️ AVAILABLE TASK RUNNERS
 - ```flask model seed all``` → Seeds the database with relevant initial data
-- ```npm run build:dev:watch``` → Builds the frontend code with optimizations turned on and generates a sourcemap
+- ```npm run build:prod``` → Builds the frontend code with optimizations turned on and generates a sourcemap
 - ```npm run build:dev:watch``` → Watches the frontend code for any change and rebuilds with debug options enabled
 - ```sh requests.sh --help``` → Shows helpful information about `requests.sh` script
 - ```sh requests.sh build``` → Downloads and builds the projects dependencies
