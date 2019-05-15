@@ -44,13 +44,46 @@ class RequestEndpoint(Resource):
         request_data = request_schema.deserialize(request_dict)
 
         # Save data to the database
-        Request(**request_data).save()
+        save_request(request_data)
 
         return {
             'success': True,
             'message': messages['created']('request'),
             'data': request_schema.serialize(request_data),
         }, 201
+
+
+def save_request(request_data):
+    """
+    Reorders entries for a client if priority already exists and
+    saves new request.
+
+    Args:
+        request_data (dict): request data to be saved.
+    """
+    priority = request_data['priority']
+    client_id = request_data['client_id']
+
+    # Check for row with similar priority
+    request = Request.query.filter_by(client_id=client_id,
+                                      priority=priority).all()
+    # Update every duplicate we find.
+    while request:
+        # Increment priority.
+        priority += 1
+
+        # Check for row with the newly updated priority value.
+        new_request = Request.query.filter_by(
+            client_id=client_id, priority=priority
+        ).all()
+
+        # Update request with previous priority value.
+        request[0].update(priority=priority)
+
+        # Update request
+        request = new_request
+
+    Request(**request_data).save()
 
 
 @api.route('/requests/<int:request_id>')
@@ -101,6 +134,9 @@ class RequestCommentsEndpoint(Resource):
     def post(self, request_id):
         """
         Adds a comment under specified request.
+
+        Args:
+            request_id (int): request id to fetch.
         """
         # Convert request to dictionary
         request_dict = request.get_json() or {}

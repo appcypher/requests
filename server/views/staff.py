@@ -15,13 +15,16 @@ class StaffEndpoint(Resource):
     def get(self, staff_id):
         """
         Gets the staff with the specified id.
+
+        Args:
+            staff_id (int): staff id to fetch.
         """
         # Get the requested staff
         staff = Staff.find_by_id(staff_id)
 
         # Create a serialization schema
         staff_schema = StaffSchema(exclude=('created_at', 'updated_at'))
-        
+
         return {
             'success': True,
             'message': messages['fetched']('staff'),

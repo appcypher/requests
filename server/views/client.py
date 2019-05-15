@@ -15,6 +15,9 @@ class ClientEndpoint(Resource):
     def get(self, client_id):
         """
         Gets the client with the specified id
+
+        Args:
+            client_id (int): client id to find.
         """
         # Get the requested client
         client = Client.find_by_id(client_id)

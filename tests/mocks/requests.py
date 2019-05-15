@@ -102,6 +102,29 @@ def valid_request_body(valid_client_model, valid_staff_model):
 
 
 @fixture(scope='function')
+def valid_request_body_with_existing_priority(valid_request_model):
+    """
+    A fixture for creating a request body with existing priority number
+    for a client.
+
+    Args:
+        valid_request_model (Model): a valid request model created by a
+            fixture.
+    """
+    return {
+        'title': 'Add PayPal payment support',
+        'description':
+            'Client B wants to be able to purchase using '
+            'his PayPal',
+        'product_area': 'BILLING',
+        'target_date': '2019-10-05T00:00:00Z',
+        'priority': 1,
+        'staff_id': 1,
+        'client_id': 1,
+    }
+
+
+@fixture(scope='function')
 def invalid_request_body_with_missing_fields(
     valid_client_model, valid_staff_model
 ):
@@ -186,28 +209,6 @@ def invalid_request_body_with_invalid_enum_value(
             'be abysmal with representatives dropping calls on customer or '
             'being rather unpleasant.',
         'product_area': 'POLITICS',
-        'target_date': '2019-10-05T00:00:00Z',
-        'priority': 1,
-        'staff_id': 1,
-        'client_id': 1,
-    }
-
-
-@fixture(scope='function')
-def invalid_request_body_with_conflicting_priority(valid_request_model):
-    """
-    A fixture for creating a request body with conflicting priority.
-
-    Args:
-        valid_request_model (Model): a valid request model created by a
-            fixture.
-    """
-    return {
-        'title': 'Add PayPal payment support',
-        'description':
-            'Client B wants to be able to purchase using '
-            'his PayPal',
-        'product_area': 'BILLING',
         'target_date': '2019-10-05T00:00:00Z',
         'priority': 1,
         'staff_id': 1,

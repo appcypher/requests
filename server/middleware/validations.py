@@ -1,6 +1,5 @@
 """ Module that holds middleware validators. """
 from errors import ClientError
-from models import Request
 from marshmallow import ValidationError
 from datetime import datetime
 
@@ -41,23 +40,18 @@ def validate_string_length(length):
 
 def validate_priority(client_id, priority):
     """
-    Checks if client is already given the priority.
+    Checks if priority is invalid.
 
     Args:
         client_id (int): client id.
         priority (int): priority value.
 
     Raises:
-        ClientError: if priority already exists for client.
+        ClientError: if priority value is not between 0 and 100.
     """
-    result = Request.query.filter_by(client_id=client_id,
-                                     priority=priority).all()
 
     if priority > 99 or priority < 1:
         raise ClientError('priority value must be between 0 and 100', 400)
-
-    if result:
-        raise ClientError('priority number already exists for client', 409)
 
 
 def validate_id(model):
