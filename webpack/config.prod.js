@@ -32,7 +32,14 @@ module.exports = {
     },
     {
       test: /\.html$/,
-      use: ['html-loader'],
+      use: [
+        {
+          loader: 'html-loader',
+          options: {
+            removeComments: false // Need to preserve knockoutjs comment tags.
+          },
+        }
+      ],
     },
     {
       test: /\.scss$/,
