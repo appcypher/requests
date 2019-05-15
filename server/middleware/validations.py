@@ -53,6 +53,9 @@ def validate_priority(client_id, priority):
     result = Request.query.filter_by(client_id=client_id,
                                      priority=priority).all()
 
+    if priority > 99 or priority < 1:
+        raise ClientError('priority value must be between 0 and 100', 400)
+
     if result:
         raise ClientError('priority number already exists for client', 409)
 
