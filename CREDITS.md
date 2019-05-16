@@ -1,5 +1,5 @@
 ## Logos and Icons
-Logos and icons are gotten from [flaticon](www.flaticon.com)
+Logos and icons are gotten from [flaticon](https://www.flaticon.com)
 
 The designers of various icons include:
 - Freepik
