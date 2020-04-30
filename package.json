@@ -27,7 +27,7 @@
     "eslint-plugin-react": "^7.12.4",
     "file-loader": "^3.0.1",
     "html-loader": "^0.5.5",
-    "jquery": "^3.3.1",
+    "jquery": "^3.5.0",
     "knockout": "^3.5.0",
     "knockout-postbox": "^0.6.0",
     "moment": "^2.24.0",
