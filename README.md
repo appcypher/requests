@@ -12,7 +12,7 @@ You can find the mockups [here](https://www.figma.com/file/CEAsuJTXG1nRShKSMkLdR
 
 Requests is part of a larger application. It allows the staff of an imaginary company to register and track clients' feature requests.
 
-See Requests running [here](http://requests2-env.ytcuuufw3p.us-east-2.elasticbeanstalk.com/)
+~See Requests running [here](http://requests2-env.ytcuuufw3p.us-east-2.elasticbeanstalk.com/)~
 
 
 
