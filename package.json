@@ -20,7 +20,7 @@
   },
   "homepage": "https://github.com/appcypher/feature-request#readme",
   "dependencies": {
-    "axios": "^0.18.0",
+    "axios": "^0.21.1",
     "cross-env": "^5.2.0",
     "css-loader": "^2.1.0",
     "eslint-plugin-jsx-a11y": "^6.2.1",
